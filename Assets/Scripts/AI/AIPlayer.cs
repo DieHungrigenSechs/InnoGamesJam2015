@@ -8,6 +8,7 @@ public class AIPlayer : MonoBehaviour
 {
     public static AIPlayer current { private set; get; }
     private CharacterMotor motor;
+    [SerializeField]
     private AIWaypoint currentWaypoint;
 
 	void Awake()
@@ -20,17 +21,25 @@ public class AIPlayer : MonoBehaviour
     {
 	    if(currentWaypoint)
         {
-            var horizontalDistance = currentWaypoint.transform.position.x - transform.position.x;
+            var distance = currentWaypoint.transform.position - transform.position;
+            distance.z = 0;
 
-            var waypointReachDistance = 0.2f;
+            var horizonralReachDistance = 0.2f;
+            var verticalReachDistance = 0.5f;
 
-            if(horizontalDistance < -waypointReachDistance)
+            if(distance.x < -horizonralReachDistance)
             {
                 motor.MoveLeft();
             }
-            else if(horizontalDistance > waypointReachDistance)
+            else if(distance.x > horizonralReachDistance)
             {
                 motor.MoveRight();
+            }
+            else if(distance.y < verticalReachDistance)
+            {
+                var wp = currentWaypoint;
+                currentWaypoint = null;
+                wp.OnAIReached();
             }
         }
 	}

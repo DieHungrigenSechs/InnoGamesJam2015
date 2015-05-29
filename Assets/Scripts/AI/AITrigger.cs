@@ -13,7 +13,7 @@ public class AITrigger : MonoBehaviour
         Player, AI
     }
     [SerializeField]
-    private InstigatorType triggerType;
+    private InstigatorType instigator = InstigatorType.Player;
     private enum TriggerTimes
     {
         Once, Always
@@ -30,7 +30,7 @@ public class AITrigger : MonoBehaviour
 
         var t = default(System.Type);
 
-        switch(triggerType)
+        switch(instigator)
         {
             case InstigatorType.Player:
                 //t = typeof()
@@ -42,7 +42,7 @@ public class AITrigger : MonoBehaviour
 
         if(c.GetComponent(t))
         {
-            SendMessage("OnAIEnter", SendMessageOptions.DontRequireReceiver);
+            SendMessage("OnTriggerAIAction", SendMessageOptions.DontRequireReceiver);
             if(triggerTimes == TriggerTimes.Once)
             {
                 triggerable = false;

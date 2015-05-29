@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 /// <summary>
 /// Eine AI Action, die dem KI-Spieler anweist, zu einem anderen Waypoint zu laufen.
 /// </summary>
 [AddComponentMenu("AI/AIAction/Next Waypoint")]
-public class AIActionNextWaypoint : AIAction
+public class AIActionNextWaypoint : MonoBehaviour
 {
     [SerializeField]
     private AIWaypoint waypoint;
 
-	void OnAIEnter()
+    void OnTriggerAIAction()
     {
         AIPlayer.current.SetWaypoint(waypoint);
 	}
