@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CharacterController : MonoBehaviour, ICharacterController
+public class CharacterMotor : MonoBehaviour, ICharacterMotor
 {
     private float currentSpeed = 0.1f;
 

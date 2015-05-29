@@ -1,4 +1,4 @@
-﻿public interface ICharacterController
+﻿public interface ICharacterMotor
 {
     void MoveLeft();
     void MoveRight();
