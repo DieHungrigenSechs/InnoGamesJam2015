@@ -3,40 +3,40 @@ using System.Collections;
 
 public class WallGlitch : BugPhysics
 {
-	private Collider collider;
+	[SerializeField] float flashSpeed = 2f;
+	[SerializeField] float flashDuration = 2f;
+	private Collider2D collider;
+	private Color baseColor;
 	protected override void Awake ()
 	{
 		base.Awake ();
-		collider = GetComponent<Collider>();
+		collider = GetComponent<Collider2D>();
 	}
 
 	protected override void Start ()
 	{
 		base.Start ();
+		baseColor = renderer.color;
 		SetActive(false);
 	}
 
 	protected void SetActive(bool active)
 	{
-		collider.isTrigger = active;
+		collider.isTrigger = !active;
 	}
 
 	protected override void Update ()
 	{
 		base.Update ();
 		Color color = renderer.color;
-		color.a = Flash(color.a,1f,1f);
+		color.a = Flash(color.a,Random.Range(0f,flashDuration),flashSpeed);
 		renderer.color = color;
 	}
 
-	private float Flash(float value,float speed,float max)
+	protected override void Reset ()
 	{
-		if(speed != 0)
-		{
-			speed = Time.time * speed  * 2 * Mathf.PI;
-			speed = Mathf.Cos( speed ) * max;
-			value = speed;
-		}
-		return value;	
+		renderer.color = baseColor;
+		SetActive(true);
+		base.Reset ();
 	}
 }
