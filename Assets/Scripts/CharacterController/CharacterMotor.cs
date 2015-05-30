@@ -183,10 +183,12 @@ public class CharacterMotor : Photon.MonoBehaviour
         Rocketlauncher rocketlauncher = GetComponent<Rocketlauncher>();
         if (rocketlauncher != null && rocketlauncher.isActiveAndEnabled) {
             rocketlauncher.Attack();
-            return;
         }
+    }
+
+    public void ThrowBomb() {
         Bombthrower bombthrower = GetComponent<Bombthrower>();
-        if (bombthrower != null && bombthrower.isActiveAndEnabled) {
+        if (bombthrower != null) {
             bombthrower.Attack();
         }
     }
