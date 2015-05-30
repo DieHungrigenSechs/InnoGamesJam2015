@@ -19,14 +19,14 @@ public class CharacterMotor : Photon.MonoBehaviour
     private float turnSpeed = 10f;
 
     private Rigidbody2D rigidbodyObject;
+    private BoxCollider2D colliderObject;
+    private Animator animatorObject;
 
     private float currentSpeed;
 
     private float jumpPowerToApply;
 
     private bool accelerated;
-
-	private SpriteRenderer renderer;
 
 	private FollowCamera camera;
 
@@ -37,7 +37,8 @@ public class CharacterMotor : Photon.MonoBehaviour
     protected virtual void Awake()
     {
         rigidbodyObject = GetComponent<Rigidbody2D>();
-		renderer = GetComponent<SpriteRenderer>();
+        colliderObject = GetComponent<BoxCollider2D>();
+        animatorObject = GetComponentInChildren<Animator>();
 
         isNPC = (!GetComponent<CharacterInput>());
 
@@ -63,8 +64,10 @@ public class CharacterMotor : Photon.MonoBehaviour
 
 	private bool RaycastCollider(Vector2 direction)
 	{
-		float length = renderer.bounds.extents.magnitude;
-		RaycastHit2D hit = Physics2D.Raycast(transform.position,direction.normalized,length);
+        float length = colliderObject.size.y / 2f + 0.05f;
+        var pos = transform.position;
+        var layers = ~LayerMask.GetMask("Human", "Ignore Raycast");
+		RaycastHit2D hit = Physics2D.Raycast(new Vector2(pos.x, pos.y) + colliderObject.offset, direction.normalized, length, layers);
 		return hit;
 	}
 
@@ -87,6 +90,9 @@ public class CharacterMotor : Photon.MonoBehaviour
             }
         }
 
+        animatorObject.SetFloat("Speed", Mathf.Abs(currentSpeed));
+        animatorObject.SetBool("Grounded", IsGrounded);
+
         // Turn to movement direction (NPCs only)
         if (isNPC && Math.Abs(currentSpeed) > turnSpeed) {
             IsTurnedToRight = (currentSpeed > 0f);
@@ -96,6 +102,7 @@ public class CharacterMotor : Photon.MonoBehaviour
         if (jumpPowerToApply > 0f && IsGrounded) 
 		{
             rigidbodyObject.AddForce(new Vector2(0f, jumpPowerToApply), ForceMode2D.Impulse);
+            animatorObject.SetTrigger("Jump");
         }
         jumpPowerToApply = 0f;
     }
@@ -183,5 +190,4 @@ public class CharacterMotor : Photon.MonoBehaviour
             bombthrower.Attack();
         }
     }
-
 }

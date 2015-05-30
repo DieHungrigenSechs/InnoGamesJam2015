@@ -2,18 +2,18 @@
 using System.Collections;
 
 /// <summary>
-/// Löst OnAIEnter auf dem eigenen GameObject aus,
+/// Löst OnTriggerAction auf dem eigenen GameObject aus,
 /// wenn der Trigger von einer Spielfigur des spezifizierten Typs berührt wird.
 /// </summary>
-[AddComponentMenu("AI/AI Trigger")]
-public class AITrigger : MonoBehaviour
+[AddComponentMenu("Generic Trigger")]
+public class GenericTrigger : MonoBehaviour
 {
     private enum InstigatorType
     {
-        Player, AI
+        Player, AI, Any
     }
     [SerializeField]
-    private InstigatorType instigator = InstigatorType.Player;
+    private InstigatorType instigator = InstigatorType.Any;
     private enum TriggerTimes
     {
         Once, Always
@@ -28,21 +28,24 @@ public class AITrigger : MonoBehaviour
     {
         if(!triggerable) return;
 
-        var t = default(System.Type);
+        var trigger = false;
 
         switch(instigator)
         {
             case InstigatorType.Player:
-                //t = typeof()
+                trigger = c.GetComponent<CharacterInput>();
                 break;
             case InstigatorType.AI:
-                t = typeof(AIPlayer);
+                trigger = c.GetComponent<AIPlayer>();
+                break;
+            case InstigatorType.Any:
+                trigger = c.GetComponent<AIPlayer>() || c.GetComponent<CharacterInput>();
                 break;
         }
 
-        if(c.GetComponent(t))
+        if(trigger)
         {
-            SendMessage("OnTriggerAIAction", SendMessageOptions.DontRequireReceiver);
+            SendMessage("OnTriggerAction", SendMessageOptions.DontRequireReceiver);
             if(triggerTimes == TriggerTimes.Once)
             {
                 triggerable = false;
