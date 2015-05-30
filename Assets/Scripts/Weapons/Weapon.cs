@@ -7,8 +7,7 @@ public abstract class Weapon : MonoBehaviour {
 
     private float lastShot;
 
-    [SerializeField]
-    private GameObject projectilePrefab;
+    protected GameObject projectilePrefab;
 
     [SerializeField]
     protected float fireRate = 0.5f;
