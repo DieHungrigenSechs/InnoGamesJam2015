@@ -32,11 +32,15 @@ public class CharacterMotor : Photon.MonoBehaviour
 
 	private Vector2 lastVelocity;
 
+    private bool IsNPC;
+
     protected virtual void Awake()
     {
         rigidbodyObject = GetComponent<Rigidbody2D>();
         colliderObject = GetComponent<BoxCollider2D>();
         animatorObject = GetComponentInChildren<Animator>();
+
+        IsNPC = (!GetComponent<CharacterInput>());
 
 		camera = FindObjectOfType<FollowCamera>();
         if (camera) {
@@ -89,8 +93,8 @@ public class CharacterMotor : Photon.MonoBehaviour
         animatorObject.SetFloat("Speed", Mathf.Abs(currentSpeed));
         animatorObject.SetBool("Grounded", IsGrounded);
 
-        // Turn to movement
-        if (Math.Abs(currentSpeed) > turnSpeed) {
+        // Turn to movement direction (NPCs only)
+        if (IsNPC && Math.Abs(currentSpeed) > turnSpeed) {
             IsTurnedToRight = (currentSpeed > 0f);
         }
 
@@ -161,6 +165,29 @@ public class CharacterMotor : Photon.MonoBehaviour
             } else {
                 transform.localScale = new Vector3(-Mathf.Abs(localScale.x), localScale.y, localScale.z);
             }
+        }
+    }
+
+    public void Attack() {
+        // REALLY DIRTY SHIT!!!11 try all weapons and fire the first existing and active one!
+        Pistol pistol = GetComponent<Pistol>();
+        if (pistol != null && pistol.isActiveAndEnabled) {
+            pistol.Attack();
+            return;
+        }
+        Machinegun machinegun = GetComponent<Machinegun>();
+        if (machinegun != null && machinegun.isActiveAndEnabled) {
+            machinegun.Attack();
+            return;
+        }
+        Rocketlauncher rocketlauncher = GetComponent<Rocketlauncher>();
+        if (rocketlauncher != null && rocketlauncher.isActiveAndEnabled) {
+            rocketlauncher.Attack();
+            return;
+        }
+        Bombthrower bombthrower = GetComponent<Bombthrower>();
+        if (bombthrower != null && bombthrower.isActiveAndEnabled) {
+            bombthrower.Attack();
         }
     }
 }
