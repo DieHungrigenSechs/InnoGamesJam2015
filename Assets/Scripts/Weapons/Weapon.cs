@@ -3,7 +3,8 @@
 public abstract class Weapon : MonoBehaviour {
     private const float ProjectileStartXOffset = 0.75f;
     private const float ProjectileStartYOffset = 1f;
-    private const float ProjectileInitialSpeed = 13f;
+
+    protected float projectileInitialSpeed = 13f;
 
     private float lastShot;
 
@@ -16,14 +17,11 @@ public abstract class Weapon : MonoBehaviour {
 
     private bool isNPC;
 
-    protected void Start() {
-        isNPC = (!GetComponent<CharacterInput>());
-        characterMotor = GetComponent<CharacterMotor>();
-    }
-
     void OnEnable()
     {
         GetComponentInChildren<WeaponHolderArm>().sprite = armSprite;
+        isNPC = (!GetComponent<CharacterInput>());
+        characterMotor = GetComponent<CharacterMotor>();
     }
 
     public void Attack() {
@@ -51,10 +49,10 @@ public abstract class Weapon : MonoBehaviour {
             if (isNPC) {
                 // NPC simple attack based on direction
                 if (isTurnedToRight) {
-                    shotRigidbody.AddForce(new Vector2(ProjectileInitialSpeed, 0), ForceMode2D.Impulse);
+                    shotRigidbody.AddForce(new Vector2(projectileInitialSpeed, 0), ForceMode2D.Impulse);
                 } else {
                     shotRigidbody.AddForce(
-                        new Vector2(-ProjectileInitialSpeed, Random.Range(-1f, 1f)*ProjectileInitialSpeed),
+                        new Vector2(-projectileInitialSpeed, Random.Range(-1f, 1f)*projectileInitialSpeed),
                         ForceMode2D.Impulse);
                 }
             } else {
@@ -64,7 +62,7 @@ public abstract class Weapon : MonoBehaviour {
                 Vector2 direction = target - myPos;
                 direction.Normalize();
                 Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
-                shotRigidbody.velocity = direction * ProjectileInitialSpeed;
+                shotRigidbody.velocity = direction * projectileInitialSpeed;
             }
         }
     }
