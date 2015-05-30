@@ -17,7 +17,6 @@ public class CharacterMotor : Photon.MonoBehaviour
     private float jumpPower = 10f;
 
     private Rigidbody2D rigidbodyObject;
-    private BoxCollider2D colliderObject;
     private Animator animatorObject;
 
     private float inputHorizontal;
@@ -30,7 +29,6 @@ public class CharacterMotor : Photon.MonoBehaviour
     protected virtual void Awake()
     {
         rigidbodyObject = GetComponent<Rigidbody2D>();
-        colliderObject = GetComponent<BoxCollider2D>();
         animatorObject = GetComponentInChildren<Animator>();
 
         isNPC = (!GetComponent<CharacterInput>());
@@ -57,10 +55,10 @@ public class CharacterMotor : Photon.MonoBehaviour
 
 	private bool RaycastCollider(Vector2 direction)
 	{
-        float length = colliderObject.size.y / 2f + 0.05f;
+        float length =  0.05f;
         var pos = transform.position;
         var layers = ~LayerMask.GetMask("Human", "Ignore Raycast");
-		RaycastHit2D hit = Physics2D.Raycast(new Vector2(pos.x, pos.y) + colliderObject.offset, direction.normalized, length, layers);
+		RaycastHit2D hit = Physics2D.Raycast(new Vector2(pos.x, pos.y), direction.normalized, length, layers);
 		return hit;
 	}
 
