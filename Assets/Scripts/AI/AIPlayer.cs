@@ -48,4 +48,14 @@ public class AIPlayer : MonoBehaviour
     {
         currentWaypoint = waypoint;
     }
+
+#if UNITY_EDITOR
+    void OnDrawGizmos()
+    {
+        if(!currentWaypoint) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, currentWaypoint.transform.position);
+    }
+#endif
 }

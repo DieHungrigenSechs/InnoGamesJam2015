@@ -19,6 +19,7 @@ public class CharacterMotor : Photon.MonoBehaviour
     private float turnSpeed = 10f;
 
     private Rigidbody2D rigidbodyObject;
+    private BoxCollider2D colliderObject;
 
     private float currentSpeed;
 
@@ -35,7 +36,8 @@ public class CharacterMotor : Photon.MonoBehaviour
     protected virtual void Awake()
     {
         rigidbodyObject = GetComponent<Rigidbody2D>();
-		renderer = GetComponent<SpriteRenderer>(); 
+		renderer = GetComponent<SpriteRenderer>();
+        colliderObject = GetComponent<BoxCollider2D>();
 
 		camera = FindObjectOfType<FollowCamera>();
         if (camera) {
@@ -59,7 +61,7 @@ public class CharacterMotor : Photon.MonoBehaviour
 
 	private bool RaycastCollider(Vector2 direction)
 	{
-		float length = renderer.bounds.extents.magnitude;
+        float length = colliderObject.size.y + 0.05f;
 		RaycastHit2D hit = Physics2D.Raycast(transform.position,direction.normalized,length);
 		return hit;
 	}
@@ -156,5 +158,4 @@ public class CharacterMotor : Photon.MonoBehaviour
             }
         }
     }
-
 }
