@@ -31,8 +31,11 @@ public class CharacterInput : Photon.MonoBehaviour
             SelectWeapon(1);
         } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
             SelectWeapon(2);
-        } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
-            SelectWeapon(3);
+        }
+
+        // Bomb
+        if (Input.GetKeyDown(KeyCode.G)) {
+            characterMotor.ThrowBomb();
         }
     }
 
@@ -68,11 +71,10 @@ public class CharacterInput : Photon.MonoBehaviour
     }
 
     protected void SelectWeapon(int weaponId) {
-        Weapon[] weapon = new Weapon[4];
+        Weapon[] weapon = new Weapon[3];
         weapon[0] = GetComponent<Pistol>();
         weapon[1] = GetComponent<Machinegun>();
         weapon[2] = GetComponent<Rocketlauncher>();
-        weapon[3] = GetComponent<Bombthrower>();
         // Disable all unused weapons
         for (int i = 0; i < weapon.Length; i++) {
             if (weapon[i] != null && weapon[i].enabled && i != weaponId) {
