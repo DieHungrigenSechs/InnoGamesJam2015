@@ -37,11 +37,13 @@ public class NetworkMotor  : CharacterMotor
 		{        
 			stream.SendNext(Velocity);
 			stream.SendNext(transform.position);
+            stream.SendNext(IsTurnedToRight);
 		}
 		else
 		{    
 			Velocity = (Vector2)stream.ReceiveNext();
 			position = (Vector3)stream.ReceiveNext();
+		    IsTurnedToRight = (bool)stream.ReceiveNext();
 		}
 	}
 }
