@@ -32,14 +32,14 @@ public class CharacterMotor : Photon.MonoBehaviour
 
 	private Vector2 lastVelocity;
 
-    private bool IsNPC;
+    private bool isNPC;
 
     protected virtual void Awake()
     {
         rigidbodyObject = GetComponent<Rigidbody2D>();
 		renderer = GetComponent<SpriteRenderer>();
 
-        IsNPC = (!GetComponent<CharacterInput>());
+        isNPC = (!GetComponent<CharacterInput>());
 
 		camera = FindObjectOfType<FollowCamera>();
         if (camera) {
@@ -88,7 +88,7 @@ public class CharacterMotor : Photon.MonoBehaviour
         }
 
         // Turn to movement direction (NPCs only)
-        if (IsNPC && Math.Abs(currentSpeed) > turnSpeed) {
+        if (isNPC && Math.Abs(currentSpeed) > turnSpeed) {
             IsTurnedToRight = (currentSpeed > 0f);
         }
 

@@ -15,6 +15,19 @@ public class CharacterInput : Photon.MonoBehaviour
         }
     }
 
+    protected void Update() {
+        // Wweapon switching
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            SelectWeapon(0); 
+        } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            SelectWeapon(1);
+        } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
+            SelectWeapon(2);
+        } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+            SelectWeapon(3);
+        }
+    }
+
     protected virtual void FixedUpdate() 
 	{
 
@@ -37,12 +50,30 @@ public class CharacterInput : Photon.MonoBehaviour
             characterMotor.Attack();
         }
 
-        // Player direction
+        // Change player direction depending on mouse position
         Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
         // Threshold for direction change to prevent crazy direction flickering when cursor is close to player
         float distance = Mathf.Abs(mouseWorldPosition.x - transform.position.x);
         if (distance > 0.05f) {
             characterMotor.IsTurnedToRight = (mouseWorldPosition.x > transform.position.x);
+        }
+    }
+
+    protected void SelectWeapon(int weaponId) {
+        Weapon[] weapon = new Weapon[4];
+        weapon[0] = GetComponent<Pistol>();
+        weapon[1] = GetComponent<Machinegun>();
+        weapon[2] = GetComponent<Rocketlauncher>();
+        weapon[3] = GetComponent<Bombthrower>();
+        // Disable all unused weapons
+        for (int i = 0; i < weapon.Length; i++) {
+            if (weapon[i] != null && weapon[i].enabled && i != weaponId) {
+                weapon[i].enabled = false;
+            }
+        } 
+        // Enable new weapon
+        if (weapon[weaponId] != null && weapon[weaponId].enabled == false) {
+            weapon[weaponId].enabled = true;
         }
     }
 }
