@@ -11,6 +11,11 @@ public class AIWaypoint : MonoBehaviour
         SendMessage("OnTriggerAIAction", SendMessageOptions.DontRequireReceiver);
     }
 
+    public void SetAsNext()
+    {
+        AIPlayer.current.SetWaypoint(this);
+    }
+
 #if UNITY_EDITOR
     void OnDrawGizmos()
     {

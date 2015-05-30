@@ -11,7 +11,7 @@ public class AIActionNextWaypoint : MonoBehaviour
 
     void OnTriggerAIAction()
     {
-        AIPlayer.current.SetWaypoint(waypoint);
+        waypoint.SetAsNext();
 	}
 
 #if UNITY_EDITOR
