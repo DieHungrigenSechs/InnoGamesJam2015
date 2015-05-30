@@ -191,7 +191,7 @@ public class CharacterMotor : Photon.MonoBehaviour
         }
     }
 
-    public Vector2 GetTargetPosition() {
+    public Vector3 GetTargetPosition() {
         return Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
     }
 }
