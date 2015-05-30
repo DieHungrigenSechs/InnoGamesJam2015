@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour {
+public class Bomb : Projectiles {
 
     public GameObject explosion;
 
@@ -9,14 +9,19 @@ public class Bomb : MonoBehaviour {
 
     private const float ExplosionForce = -10f;
 
-    protected void OnCollisionEnter2D(Collision2D collision) {
+    protected override void OnCollisionEnter2D(Collision2D collision) 
+	{
         Rigidbody2D rigidbodyComponent = GetComponent<Rigidbody2D>();
-        if (rigidbodyComponent != null) {
+        if (rigidbodyComponent != null) 
+		{
             rigidbodyComponent.velocity = Vector2.zero;
         }
     }
 
-    public void Awake() {
+
+    protected virtual void Awake() 
+	{
+		base.Awake();
         StartCoroutine(Arm(3.0f));
     }
 
@@ -30,9 +35,16 @@ public class Bomb : MonoBehaviour {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), ExplosionRange);
         foreach (Collider2D collider in colliders) {
             Rigidbody2D affectedRigidbody = collider.attachedRigidbody;
-            if (affectedRigidbody != null) {
+            if (affectedRigidbody != null) 
+			{
+				PlayerHealth health = affectedRigidbody.gameObject.GetComponent<PlayerHealth>();
+				if(health)
+				{
+					health.SetEnergy(-damage);
+				}
                 affectedRigidbody.AddForce((collider.transform.position - transform.position).normalized * ExplosionForce);
             }
+
         }
 
         Instantiate(explosion, transform.position, Quaternion.identity);

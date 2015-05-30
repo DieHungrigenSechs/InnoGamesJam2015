@@ -74,10 +74,11 @@ public class Lift : MonoBehaviour
         {
             var t = target as Lift;
 
-            t.targetPosition = Handles.FreeMoveHandle(t.targetPosition, Quaternion.identity, 0.5f, Vector3.zero, Handles.RectangleCap);
+            var newPosition = Handles.FreeMoveHandle(t.targetPosition, Quaternion.identity, 0.5f, Vector3.zero, Handles.RectangleCap);
             if(GUI.changed)
             {
-                print(t.targetPosition);
+                Undo.RecordObject(t, "Moved Lift Target Position.");
+                t.targetPosition = newPosition;
                 EditorUtility.SetDirty(target);
             }
         }
