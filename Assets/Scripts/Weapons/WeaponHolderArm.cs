@@ -7,9 +7,13 @@ public class WeaponHolderArm : MonoBehaviour
     private Sprite defaultSprite;
     private Transform armRoot;
     private CharacterMotor motor;
+    private bool awoken = false;
 
 	void Awake()
     {
+        if(awoken) return;
+
+        awoken = true;
         r = GetComponent<SpriteRenderer>();
         defaultSprite = r.sprite;
         armRoot = transform.parent;
