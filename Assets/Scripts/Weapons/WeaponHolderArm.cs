@@ -7,9 +7,13 @@ public class WeaponHolderArm : MonoBehaviour
     private Sprite defaultSprite;
     private Transform armRoot;
     private CharacterMotor motor;
+    private bool awoken = false;
 
 	void Awake()
     {
+        if(awoken) return;
+
+        awoken = true;
         r = GetComponent<SpriteRenderer>();
         defaultSprite = r.sprite;
         armRoot = transform.parent;
@@ -24,6 +28,7 @@ public class WeaponHolderArm : MonoBehaviour
         }
         set
         {
+            if(!r) Awake();
             r.sprite = value;
         }
     }
@@ -35,10 +40,11 @@ public class WeaponHolderArm : MonoBehaviour
         if (weaponEquipped)
         {
             transform.localRotation = Quaternion.Euler(0, 0, -90);
+
             var target = motor.GetTargetPosition();
             var direction = target - transform.position;
             direction.x = Mathf.Abs(direction.x);
-            armRoot.localRotation = Quaternion.LookRotation(Vector3.forward, direction) * Quaternion.Euler(0, 0, 180);
+            armRoot.rotation = Quaternion.LookRotation(Vector3.forward, direction) * Quaternion.Euler(0, 0, 180);
         }
     }
 
