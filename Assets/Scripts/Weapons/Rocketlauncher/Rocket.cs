@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
-public class Rocket:MonoBehaviour {
+public class Rocket:Projectiles 
+{
 
-    protected void OnCollisionEnter2D(Collision2D collision) {
-        Destroy(gameObject);
-    }
+   
 
 }
 
