@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class FollowCamera : BasicBehavior
 {
 	[SerializeField] List<GameObject> targets = new List<GameObject>();
+	[SerializeField] Vector3 offset;
 	[SerializeField] float minDistance = 2f;
 	[SerializeField] float maxDistance = 5f;
 	[SerializeField] float zoomSpeed = 1f;
@@ -30,7 +31,7 @@ public class FollowCamera : BasicBehavior
 		float speed = Time.deltaTime * zoomSpeed;
 		distance =  Mathf.Lerp(camera.orthographicSize,distance,speed);
 		camera.orthographicSize = Mathf.Clamp(distance,minDistance,maxDistance);
-		transform.position = new Vector3(position.x,position.y,transform.position.z);
+		transform.position = new Vector3(position.x,position.y,transform.position.z) + offset;
 	}
 	
 	private Vector3 CenterOf(GameObject[] targets)
