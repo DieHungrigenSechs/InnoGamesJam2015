@@ -13,24 +13,34 @@ public class NetworkMotor  : CharacterMotor
 
 	protected override void FixedUpdate ()
 	{
-		base.FixedUpdate();
 		if(!photonView.isMine)
 		{
-			transform.position = Vector3.Lerp(transform.position,position, Time.deltaTime);
+			float distance = Vector3.Distance(transform.position,position);
+			if(distance >= 1f)
+			{
+				transform.position = position;
+			}
+			else
+			{
+				transform.position = Vector3.Lerp(transform.position,position,Mathf.Max(Time.deltaTime,distance));
+			}
+		}
+		else
+		{
+			base.FixedUpdate();
 		}
 	}
-	
+
 	private void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.isWriting)
-		{            
-			//We own this player: send the others our data
-			stream.SendNext (transform.position);
+		{        
+			stream.SendNext(Velocity);
+			stream.SendNext(transform.position);
 		}
 		else
 		{    
-
-			//Network player, receive data			
+			Velocity = (Vector2)stream.ReceiveNext();
 			position = (Vector3)stream.ReceiveNext();
 		}
 	}

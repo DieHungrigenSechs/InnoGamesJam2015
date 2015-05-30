@@ -1,29 +1,31 @@
 ﻿using UnityEngine;
 
-public class CharacterInput : MonoBehaviour
+public class CharacterInput : Photon.MonoBehaviour
 {
 
-    private CharacterMotor characterMotor;
+    protected CharacterMotor characterMotor;
 
-    void Start()
+    protected virtual void Awake()
     {
         characterMotor = GetComponent<CharacterMotor>();
     }
 
-    void FixedUpdate() {
+    protected virtual void FixedUpdate() 
+	{
 
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            characterMotor.MoveLeft();
+        if (Input.GetAxis("Horizontal") < 0) 
+		{
+			characterMotor.MoveLeft();
         }
 
-        if (Input.GetKey(KeyCode.RightArrow)) {
-            characterMotor.MoveRight();
+		if (Input.GetAxis("Horizontal") > 0) 
+		{
+			characterMotor.MoveRight ();
         }
 
-        if (Input.GetKey(KeyCode.Space)) {
-            characterMotor.Jump();
+        if (Input.GetAxis("Jump") != 0) 
+		{
+			characterMotor.Jump ();
         }
-
     }
-
 }
