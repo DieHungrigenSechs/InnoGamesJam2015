@@ -5,9 +5,9 @@ public class PlayerHealth : MonoBehaviour
 {
 	delegate void DeadPlayerDelegate();
 	DeadPlayerDelegate deadPlayer;
-	[SerializeField] private int lifeCounter = 100;
+	[SerializeField] private float lifeCounter = 100;
 
-	public void SetEnergy(int value)
+	public void SetEnergy(float value)
 	{
 		lifeCounter += lifeCounter;
 		if(lifeCounter <= 0)
@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
 		}
 	}
 
-	public int Energy
+	public float Energy
 	{
 		get
 		{
