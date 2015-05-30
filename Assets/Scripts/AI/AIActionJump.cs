@@ -3,7 +3,7 @@
 [AddComponentMenu("AI/AIAction/Jump")]
 public class AIActionJump : MonoBehaviour
 {
-    void OnTriggerAIAction()
+    void OnTriggerAction()
     {
         AIPlayer.current.GetComponent<CharacterMotor>().Jump();
 	}

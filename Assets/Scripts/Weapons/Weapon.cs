@@ -7,15 +7,16 @@ public abstract class Weapon : MonoBehaviour {
 
     private float lastShot;
 
-    [SerializeField]
-    private GameObject projectilePrefab;
-
-    [SerializeField]
     protected float fireRate = 0.5f;
+
+    protected GameObject projectilePrefab;
 
     private CharacterMotor characterMotor;
 
-    protected void Awake() {
+    private bool isNPC;
+
+    protected void Start() {
+        isNPC = (!GetComponent<CharacterInput>());
         characterMotor = GetComponent<CharacterMotor>();
     }
 
@@ -38,15 +39,26 @@ public abstract class Weapon : MonoBehaviour {
         }
             
         GameObject shot = Instantiate(projectilePrefab, spawnPosition, Quaternion.Euler(0f, 0f, 0f)) as GameObject;
-        Rigidbody2D rigidbodyComponent = shot.GetComponent<Rigidbody2D>();
-        if (rigidbodyComponent != null) {
-            if (isTurnedToRight)
-            {
-                rigidbodyComponent.AddForce(new Vector2(ProjectileInitialSpeed, 0), ForceMode2D.Impulse);
-            }
-            else
-            {
-                rigidbodyComponent.AddForce(new Vector2(-ProjectileInitialSpeed, Random.Range(-1f,1f) * ProjectileInitialSpeed), ForceMode2D.Impulse);
+        Rigidbody2D shotRigidbody = shot.GetComponent<Rigidbody2D>();
+        if (shotRigidbody != null) {
+            if (isNPC) {
+                // NPC simple attack based on direction
+                if (isTurnedToRight) {
+                    shotRigidbody.AddForce(new Vector2(ProjectileInitialSpeed, 0), ForceMode2D.Impulse);
+                } else {
+                    Debug.Log("is turend to left");
+                    shotRigidbody.AddForce(
+                        new Vector2(-ProjectileInitialSpeed, Random.Range(-1f, 1f)*ProjectileInitialSpeed),
+                        ForceMode2D.Impulse);
+                }
+            } else {
+                // Player attack
+                Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                Vector2 myPos = new Vector2(transform.position.x, transform.position.y + 1);
+                Vector2 direction = target - myPos;
+                direction.Normalize();
+                Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+                shotRigidbody.velocity = direction * ProjectileInitialSpeed;
             }
         }
     }
