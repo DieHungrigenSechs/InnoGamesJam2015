@@ -9,7 +9,7 @@ public class AIActionNextWaypoint : MonoBehaviour
     [SerializeField]
     private AIWaypoint waypoint;
 
-    void OnTriggerAIAction()
+    void OnTriggerAction()
     {
         waypoint.SetAsNext();
 	}

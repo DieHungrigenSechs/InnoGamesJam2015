@@ -8,7 +8,7 @@ public class AIWaypoint : MonoBehaviour
 {
     public void OnAIReached()
     {
-        SendMessage("OnTriggerAIAction", SendMessageOptions.DontRequireReceiver);
+        SendMessage("OnTriggerAction", SendMessageOptions.DontRequireReceiver);
     }
 
     public void SetAsNext()
