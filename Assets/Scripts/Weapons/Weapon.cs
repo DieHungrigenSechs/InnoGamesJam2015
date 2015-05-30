@@ -32,10 +32,11 @@ public abstract class Weapon : MonoBehaviour {
         }
         lastShot = Time.timeSinceLevelLoad;
 
-        Vector3 spawnPosition = transform.position;
+        //Vector3 spawnPosition = transform.position;
+        Vector3 spawnPosition = transform.FindChild("Arm Right Higher").position;
+
         bool isTurnedToRight = true;
-        if (characterMotor != null)
-        {
+        if (characterMotor != null) {
             isTurnedToRight = characterMotor.IsTurnedToRight;
         }
         if (isTurnedToRight) {
@@ -52,13 +53,12 @@ public abstract class Weapon : MonoBehaviour {
                 if (isTurnedToRight) {
                     shotRigidbody.AddForce(new Vector2(ProjectileInitialSpeed, 0), ForceMode2D.Impulse);
                 } else {
-                    Debug.Log("is turend to left");
                     shotRigidbody.AddForce(
                         new Vector2(-ProjectileInitialSpeed, Random.Range(-1f, 1f)*ProjectileInitialSpeed),
                         ForceMode2D.Impulse);
                 }
             } else {
-                // Player attack
+                // Player attack (shoot to mouse)
                 Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
                 Vector2 myPos = new Vector2(transform.position.x, transform.position.y + 1);
                 Vector2 direction = target - myPos;
