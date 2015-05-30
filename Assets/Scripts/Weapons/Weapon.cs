@@ -26,8 +26,8 @@ public abstract class Weapon : MonoBehaviour {
         }
         lastShot = Time.timeSinceLevelLoad;
 
-        //Vector3 spawnPosition = transform.position;
-        Vector3 spawnPosition = transform.FindChild("Arm Right Higher").position;
+        Vector3 spawnPosition = transform.position;
+        //Vector3 spawnPosition = transform.FindChild("Arm Right Higher").position;
 
         bool isTurnedToRight = true;
         if (characterMotor != null) {
