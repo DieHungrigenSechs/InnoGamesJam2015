@@ -21,11 +21,13 @@ public class AIPlayer : MonoBehaviour
     {
 	    if(currentWaypoint)
         {
-            var distance = currentWaypoint.transform.position - transform.position;
+            var targetPosition = currentWaypoint.transform.position;
+            targetPosition.y -= 1;
+            var distance = targetPosition - transform.position;
             distance.z = 0;
 
             var horizonralReachDistance = 0.2f;
-            var verticalReachDistance = 0.5f;
+            var verticalReachDistance = 0.2f;
 
             if(distance.x < -horizonralReachDistance)
             {
@@ -35,7 +37,7 @@ public class AIPlayer : MonoBehaviour
             {
                 motor.MoveRight();
             }
-            else if(distance.y < verticalReachDistance)
+            else if(Mathf.Abs(distance.y) < verticalReachDistance)
             {
                 var wp = currentWaypoint;
                 currentWaypoint = null;
@@ -48,4 +50,14 @@ public class AIPlayer : MonoBehaviour
     {
         currentWaypoint = waypoint;
     }
+
+#if UNITY_EDITOR
+    void OnDrawGizmos()
+    {
+        if(!currentWaypoint) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, currentWaypoint.transform.position);
+    }
+#endif
 }

@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 8181667585076274b8f0f5707cf25b5e
+timeCreated: 1433012101
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Right Arm Lower
+    21300002: Arm Right
+    21300004: Arm Left Lower
+    21300006: Arm Left
+    21300008: Head
+    21300010: Torso
+    21300012: Leg
+    21300014: Leg Lower
+    21300016: Gangster_8
+    21300018: Gangster_9
+    21300020: Pelvis
+    21300022: Leg Higher
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 500
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Right Arm Lower
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 679
+        width: 101
+        height: 269
+      alignment: 9
+      pivot: {x: .536824286, y: .873312354}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Arm Right
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 716
+        width: 85
+        height: 196
+      alignment: 9
+      pivot: {x: .41248709, y: .813104153}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Arm Left Lower
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 663
+        width: 107
+        height: 268
+      alignment: 9
+      pivot: {x: .586899221, y: .853888452}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Arm Left
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 695
+        width: 85
+        height: 193
+      alignment: 9
+      pivot: {x: .456243187, y: .846877337}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Head
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 590
+        width: 178
+        height: 273
+      alignment: 9
+      pivot: {x: .322392851, y: .118533403}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Torso
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 365
+        width: 172
+        height: 260
+      alignment: 9
+      pivot: {x: .478376001, y: .664507329}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Leg Higher
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 358
+        width: 114
+        height: 255
+      alignment: 9
+      pivot: {x: .434748858, y: .799002349}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Leg Lower
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 346
+        width: 115
+        height: 248
+      alignment: 9
+      pivot: {x: .258581281, y: .890743136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pelvis
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 160
+        width: 143
+        height: 180
+      alignment: 9
+      pivot: {x: .539013267, y: .799610078}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
