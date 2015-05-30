@@ -27,6 +27,7 @@ public class CharacterMotor : Photon.MonoBehaviour
 	private SpriteRenderer renderer;
 
 	private FollowCamera camera;
+	private Vector2 lastVelocity;
     protected virtual void Awake()
     {
         rigidbodyObject = GetComponent<Rigidbody2D>();
@@ -42,13 +43,23 @@ public class CharacterMotor : Photon.MonoBehaviour
         UpdateCharacterState();
     }
 
-    private void OnCollisionEnter() {
+    private void OnCollisionEnter() 
+	{
         onGround = true;
     }
 
-    private void OnCollisionExit() {
+    private void OnCollisionExit() 
+	{
         onGround = false;
     }
+
+	protected virtual void OnDestroy() 
+	{
+		if(camera)
+		{
+			camera.RemoveTarget(gameObject);
+		}
+	}
 
 	private bool RaycastCollider(Vector2 direction)
 	{
@@ -88,22 +99,41 @@ public class CharacterMotor : Photon.MonoBehaviour
 
     public void MoveLeft()
     {
-        accelerated = true;
-        ChangeSpeed(-accelerationSpeed);
+		Move(-accelerationSpeed);
     }
 
-    public void MoveRight() {
-        accelerated = true;
-        ChangeSpeed(accelerationSpeed);
+    public void MoveRight() 
+	{
+		Move(accelerationSpeed);
     }
+
+	public void Move(float accelerationSpeed)
+	{
+		accelerated = true;
+		ChangeSpeed(accelerationSpeed);
+	}
 
     private void ChangeSpeed(float change)
     {
         currentSpeed = Mathf.Clamp(currentSpeed + change, -maxSpeed, maxSpeed);
     }
 
-    public void Jump() {
-        if (rigidbodyObject.velocity.y <= 0f) {
+	public Vector2 Velocity
+	{
+		get
+		{
+			return rigidbodyObject.velocity;
+		}
+		set
+		{
+			rigidbodyObject.velocity = value;
+		}
+	}
+
+    public void Jump() 
+	{
+        if (rigidbodyObject.velocity.y <= 0f) 
+		{
             jumpPowerToApply = jumpPower;
         }
     }
