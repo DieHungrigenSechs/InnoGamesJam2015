@@ -39,7 +39,10 @@ public class BugPhysics : MonoBehaviour
 
 	private IEnumerator TimeToDestroy(float duration)
 	{
-		yield return new WaitForSeconds(duration);
-		Reset();
+		if(duration >= 0)
+		{
+			yield return new WaitForSeconds(duration);
+			Reset();
+		}
 	}
 }
