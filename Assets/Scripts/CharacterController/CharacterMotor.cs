@@ -16,7 +16,7 @@ public class CharacterMotor : Photon.MonoBehaviour
     private float jumpPower = 10f;
 
     [SerializeField]
-    private float turnSpeed = 0.1f;
+    private float turnSpeed = 10f;
 
     private Rigidbody2D rigidbodyObject;
 
@@ -84,13 +84,8 @@ public class CharacterMotor : Photon.MonoBehaviour
         }
 
         // Turn to movement
-        if (Math.Abs(rigidbodyObject.velocity.x) > turnSpeed) {
-            Vector3 localScale = transform.localScale;
-            if (rigidbodyObject.velocity.x > 0f) {
-                transform.localScale = new Vector3(Mathf.Abs(localScale.x), localScale.y, localScale.z);
-            } else {
-                transform.localScale = new Vector3(-Mathf.Abs(localScale.x), localScale.y, localScale.z);
-            }
+        if (Math.Abs(currentSpeed) > turnSpeed) {
+            IsTurnedToRight = (currentSpeed > 0f);
         }
 
         // Movement y axis
@@ -141,6 +136,24 @@ public class CharacterMotor : Photon.MonoBehaviour
         if (rigidbodyObject.velocity.y <= 0f) 
 		{
             jumpPowerToApply = jumpPower;
+        }
+    }
+
+    public bool IsTurnedToRight
+    {
+        get
+        {
+            return (transform.localScale.x > 0);
+        }
+        set
+        {
+            Vector3 localScale = transform.localScale;
+            if (value)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(localScale.x), localScale.y, localScale.z);
+            } else {
+                transform.localScale = new Vector3(-Mathf.Abs(localScale.x), localScale.y, localScale.z);
+            }
         }
     }
 
