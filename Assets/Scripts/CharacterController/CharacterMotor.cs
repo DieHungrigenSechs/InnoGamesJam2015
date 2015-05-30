@@ -34,7 +34,9 @@ public class CharacterMotor : Photon.MonoBehaviour
 		renderer = GetComponent<SpriteRenderer>(); 
 
 		camera = GameObject.FindObjectOfType<FollowCamera>();
-		camera.AddTarget(gameObject);
+        if (camera) {
+            camera.AddTarget(gameObject);
+        }
     }
 
     protected virtual void FixedUpdate() 
