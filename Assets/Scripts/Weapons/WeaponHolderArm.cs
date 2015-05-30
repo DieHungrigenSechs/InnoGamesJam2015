@@ -24,6 +24,7 @@ public class WeaponHolderArm : MonoBehaviour
         }
         set
         {
+            if(!r) Awake();
             r.sprite = value;
         }
     }
