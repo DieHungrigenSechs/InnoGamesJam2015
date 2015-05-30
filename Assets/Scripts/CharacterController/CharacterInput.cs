@@ -3,25 +3,25 @@
 public class CharacterInput : MonoBehaviour
 {
 
-    private CharacterMotor _characterMotor;
+    private CharacterMotor characterMotor;
 
     void Start()
     {
-        _characterMotor = GetComponent<CharacterMotor>();
+        characterMotor = GetComponent<CharacterMotor>();
     }
 
-    void Update() {
+    void FixedUpdate() {
 
         if (Input.GetKey(KeyCode.LeftArrow)) {
-            _characterMotor.MoveLeft();
+            characterMotor.MoveLeft();
         }
 
         if (Input.GetKey(KeyCode.RightArrow)) {
-            _characterMotor.MoveRight();
+            characterMotor.MoveRight();
         }
 
         if (Input.GetKey(KeyCode.Space)) {
-            _characterMotor.Jump();
+            characterMotor.Jump();
         }
 
     }
