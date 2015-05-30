@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CharacterMotor : Photon.MonoBehaviour
 {
@@ -12,28 +13,31 @@ public class CharacterMotor : Photon.MonoBehaviour
     private float decelerationSpeed = 5f;
 
     [SerializeField]
-    private float jumpPower = 5;
+    private float jumpPower = 10f;
+
+    [SerializeField]
+    private float turnSpeed = 10f;
 
     private Rigidbody2D rigidbodyObject;
 
     private float currentSpeed;
 
     private float jumpPowerToApply;
-    
-    private bool onGround = false;
 
     private bool accelerated;
 
 	private SpriteRenderer renderer;
 
 	private FollowCamera camera;
+
 	private Vector2 lastVelocity;
+
     protected virtual void Awake()
     {
         rigidbodyObject = GetComponent<Rigidbody2D>();
 		renderer = GetComponent<SpriteRenderer>(); 
 
-		camera = GameObject.FindObjectOfType<FollowCamera>();
+		camera = FindObjectOfType<FollowCamera>();
         if (camera) {
             camera.AddTarget(gameObject);
         }
@@ -43,16 +47,6 @@ public class CharacterMotor : Photon.MonoBehaviour
 	{
 		IsGrounded = RaycastCollider (-Vector2.up);
         UpdateCharacterState();
-    }
-
-    private void OnCollisionEnter() 
-	{
-        onGround = true;
-    }
-
-    private void OnCollisionExit() 
-	{
-        onGround = false;
     }
 
 	protected virtual void OnDestroy() 
@@ -87,6 +81,11 @@ public class CharacterMotor : Photon.MonoBehaviour
 			{
                 currentSpeed = Mathf.Min(0f, currentSpeed + decelerationSpeed);
             }
+        }
+
+        // Turn to movement
+        if (Math.Abs(currentSpeed) > turnSpeed) {
+            IsTurnedToRight = (currentSpeed > 0f);
         }
 
         // Movement y axis
@@ -137,6 +136,24 @@ public class CharacterMotor : Photon.MonoBehaviour
         if (rigidbodyObject.velocity.y <= 0f) 
 		{
             jumpPowerToApply = jumpPower;
+        }
+    }
+
+    public bool IsTurnedToRight
+    {
+        get
+        {
+            return (transform.localScale.x > 0);
+        }
+        set
+        {
+            Vector3 localScale = transform.localScale;
+            if (value)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(localScale.x), localScale.y, localScale.z);
+            } else {
+                transform.localScale = new Vector3(-Mathf.Abs(localScale.x), localScale.y, localScale.z);
+            }
         }
     }
 
