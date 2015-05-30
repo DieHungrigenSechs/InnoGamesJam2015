@@ -24,12 +24,17 @@ public class CharacterMotor : MonoBehaviour
 
     private bool accelerated;
 
+	private SpriteRenderer renderer;
+
     private void Awake()
     {
         rigidbodyObject = GetComponent<Rigidbody2D>();
+		renderer = GetComponent<SpriteRenderer>(); 
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate() 
+	{
+		IsGrounded = RaycastCollider (-Vector2.up);
         UpdateCharacterState();
     }
 
@@ -41,34 +46,41 @@ public class CharacterMotor : MonoBehaviour
         onGround = false;
     }
 
+	private bool RaycastCollider(Vector2 direction)
+	{
+		float length = renderer.bounds.extents.magnitude;
+		RaycastHit2D hit = Physics2D.Raycast(transform.position,direction.normalized,length);
+		return hit;
+	}
+
     public void UpdateCharacterState()
     {
-        // On ground?
-        //Transform transform = gameObject.transform;
-        //Vector3 position = transform.position;
-        //RaycastHit2D hit = Physics2D.Linecast(new Vector2(position.x, position.y) + new Vector2(0f, -(transform.localScale.y / 2f + 0.01f)), new Vector2(0, 0.1f));
-        //onGround = (hit.collider != null);
-        //Debug.Log(hit.collider);
-
         // Movement X axis
         rigidbodyObject.AddForce(new Vector2(currentSpeed, 0f));
-        if (accelerated) {
+        if (accelerated) 
+		{
             accelerated = false;
-        } else {
-            if (currentSpeed > 0f) {
+        } 
+		else 
+		{
+            if (currentSpeed > 0f) 
+			{
                 currentSpeed = Mathf.Max(0f, currentSpeed - decelerationSpeed);
-            } else if (currentSpeed < 0f) {
+            } else if (currentSpeed < 0f) 
+			{
                 currentSpeed = Mathf.Min(0f, currentSpeed + decelerationSpeed);
             }
         }
 
         // Movement y axis
-        if (jumpPowerToApply > 0f) { //&& onGround) {
-            Debug.Log("jump");
+        if (jumpPowerToApply > 0f && IsGrounded) 
+		{
             rigidbodyObject.AddForce(new Vector2(0f, jumpPowerToApply), ForceMode2D.Impulse);
         }
         jumpPowerToApply = 0f;
     }
+
+	public bool IsGrounded {get;set;}
 
     public void MoveLeft()
     {
