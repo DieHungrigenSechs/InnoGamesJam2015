@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CharacterMotor : MonoBehaviour
+public class CharacterMotor : Photon.MonoBehaviour
 {
     [SerializeField]
     private float maxSpeed = 15f;
@@ -26,13 +26,17 @@ public class CharacterMotor : MonoBehaviour
 
 	private SpriteRenderer renderer;
 
-    private void Awake()
+	private FollowCamera camera;
+    protected virtual void Awake()
     {
         rigidbodyObject = GetComponent<Rigidbody2D>();
 		renderer = GetComponent<SpriteRenderer>(); 
+
+		camera = GameObject.FindObjectOfType<FollowCamera>();
+		camera.AddTarget(gameObject);
     }
 
-    private void FixedUpdate() 
+    protected virtual void FixedUpdate() 
 	{
 		IsGrounded = RaycastCollider (-Vector2.up);
         UpdateCharacterState();

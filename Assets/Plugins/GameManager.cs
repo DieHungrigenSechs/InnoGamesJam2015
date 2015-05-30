@@ -10,7 +10,6 @@ public class GameManager : Photon.MonoBehaviour
 
     public static Transform localPlayer;
     public static List<Transform> players = new List<Transform>();
-
     public static Transform GetClosestPlayer(Vector3 fromPos)
     {
 
@@ -63,7 +62,6 @@ public class GameManager : Photon.MonoBehaviour
         //Spawn our local player
         GameObject GO = PhotonNetwork.Instantiate(playerPrefab.name, transform.position, Quaternion.identity, 0);
         localPlayer = GO.transform;
-
     }
 
     void OnGUI()
