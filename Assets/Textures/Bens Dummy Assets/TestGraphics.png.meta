@@ -1,0 +1,627 @@
+fileFormatVersion: 2
+guid: b5975f08f011e43488c49ded6f9663f2
+timeCreated: 1432944929
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TestGraphics_0
+    21300002: TestGraphics_1
+    21300004: TestGraphics_2
+    21300006: TestGraphics_3
+    21300008: TestGraphics_4
+    21300010: TestGraphics_5
+    21300012: TestGraphics_6
+    21300014: TestGraphics_7
+    21300016: TestGraphics_8
+    21300018: TestGraphics_9
+    21300020: TestGraphics_10
+    21300022: TestGraphics_11
+    21300024: TestGraphics_12
+    21300026: TestGraphics_13
+    21300028: TestGraphics_14
+    21300030: TestGraphics_15
+    21300032: TestGraphics_16
+    21300034: TestGraphics_17
+    21300036: TestGraphics_18
+    21300038: TestGraphics_19
+    21300040: TestGraphics_20
+    21300042: TestGraphics_21
+    21300044: TestGraphics_22
+    21300046: TestGraphics_23
+    21300048: TestGraphics_24
+    21300050: TestGraphics_25
+    21300052: TestGraphics_26
+    21300054: TestGraphics_27
+    21300056: TestGraphics_28
+    21300058: TestGraphics_29
+    21300060: TestGraphics_30
+    21300062: TestGraphics_31
+    21300064: TestGraphics_32
+    21300066: TestGraphics_33
+    21300068: TestGraphics_34
+    21300070: TestGraphics_35
+    21300072: TestGraphics_36
+    21300074: TestGraphics_37
+    21300076: TestGraphics_38
+    21300078: TestGraphics_39
+    21300080: TestGraphics_40
+    21300082: TestGraphics_41
+    21300084: TestGraphics_42
+    21300086: TestGraphics_43
+    21300088: TestGraphics_44
+    21300090: TestGraphics_45
+    21300092: TestGraphics_46
+    21300094: TestGraphics_47
+    21300096: TestGraphics_48
+    21300098: TestGraphics_49
+    21300100: TestGraphics_50
+    21300102: TestGraphics_51
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: TestGraphics_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 515
+        width: 20
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 527
+        width: 6
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 537
+        width: 57
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_3
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 534
+        width: 8
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_4
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 592
+        width: 11
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_5
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 542
+        width: 9
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_6
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 542
+        width: 7
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_7
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 542
+        width: 9
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_8
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 592
+        width: 11
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_9
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 578
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_10
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 516
+        width: 5
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_11
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 582
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_12
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 582
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_13
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 516
+        width: 5
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_14
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 528
+        width: 40
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_15
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 528
+        width: 40
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_16
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 536
+        width: 9
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_17
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 570
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_18
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 570
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_19
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 513
+        width: 31
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_20
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 513
+        width: 32
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_21
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 536
+        width: 11
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_22
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 536
+        width: 11
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_23
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 530
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_24
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 486
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_25
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 509
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_26
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 492
+        width: 17
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_27
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 442
+        width: 16
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_28
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 478
+        width: 37
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_29
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 492
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_30
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 479
+        width: 35
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_31
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 362
+        width: 80
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_32
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 370
+        width: 184
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_33
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 373
+        width: 45
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_34
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 421
+        width: 42
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_35
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 331
+        width: 13
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_36
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 413
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_37
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 411
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_38
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 412
+        width: 25
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_39
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 361
+        width: 15
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_40
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 361
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_41
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 214
+        width: 199
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_42
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 219
+        width: 52
+        height: 112
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_43
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 299
+        width: 144
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_44
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 280
+        width: 64
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_45
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 206
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_46
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 34
+        width: 40
+        height: 153
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_47
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 112
+        height: 172
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_48
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 34
+        width: 40
+        height: 153
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_49
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 29
+        width: 16
+        height: 162
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_50
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 29
+        width: 112
+        height: 170
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TestGraphics_51
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 3
+        width: 256
+        height: 192
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
