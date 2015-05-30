@@ -27,7 +27,14 @@ public class CharacterMotor : MonoBehaviour, ICharacterMotor
     }
 
     public void Jump() {
+        JumpMockup();
+    }
 
+    //Mockup von Sascha
+    private void JumpMockup()
+    {
+        var rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(Vector3.up * 10, ForceMode2D.Impulse);
     }
 
 }

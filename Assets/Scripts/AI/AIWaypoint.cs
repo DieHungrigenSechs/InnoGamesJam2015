@@ -4,8 +4,13 @@
 /// Ein Waypoint, auf den ein KI-Spieler zulaufen kann.
 /// </summary>
 [AddComponentMenu("AI/AI Waypoint")]
-public class AIWaypoint : AITrigger
+public class AIWaypoint : MonoBehaviour
 {
+    public void OnAIReached()
+    {
+        SendMessage("OnTriggerAIAction", SendMessageOptions.DontRequireReceiver);
+    }
+
 #if UNITY_EDITOR
     void OnDrawGizmos()
     {
