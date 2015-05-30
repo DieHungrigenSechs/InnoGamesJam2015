@@ -7,12 +7,20 @@ public class CharacterInput : Photon.MonoBehaviour
 
     protected CharacterMotor characterMotor;
 
+    public Texture2D crosshairTexture;
+
+    public void OnGUI() {
+        GUI.DrawTexture(new Rect(Input.mousePosition.x - 16, Screen.height - Input.mousePosition.y - 16, 32, 32), crosshairTexture, ScaleMode.ScaleToFit, true, 1.0f);
+    }
+
     protected virtual void Awake()
     {
+        crosshairTexture = Resources.Load<Texture2D>("Crosshair");
         characterMotor = GetComponent<CharacterMotor>();
         if (!characterMotor) {
             Debug.LogError("CharacterMotor is missing!");
         }
+        Cursor.visible = false;
     }
 
     protected void Update() {
