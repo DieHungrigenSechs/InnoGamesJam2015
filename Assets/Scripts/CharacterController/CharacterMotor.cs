@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CharacterMotor : Photon.MonoBehaviour
 {
@@ -12,28 +13,31 @@ public class CharacterMotor : Photon.MonoBehaviour
     private float decelerationSpeed = 5f;
 
     [SerializeField]
-    private float jumpPower = 5;
+    private float jumpPower = 10f;
+
+    [SerializeField]
+    private float turnSpeed = 0.1f;
 
     private Rigidbody2D rigidbodyObject;
 
     private float currentSpeed;
 
     private float jumpPowerToApply;
-    
-    private bool onGround = false;
 
     private bool accelerated;
 
 	private SpriteRenderer renderer;
 
 	private FollowCamera camera;
+
 	private Vector2 lastVelocity;
+
     protected virtual void Awake()
     {
         rigidbodyObject = GetComponent<Rigidbody2D>();
 		renderer = GetComponent<SpriteRenderer>(); 
 
-		camera = GameObject.FindObjectOfType<FollowCamera>();
+		camera = FindObjectOfType<FollowCamera>();
         if (camera) {
             camera.AddTarget(gameObject);
         }
@@ -43,16 +47,6 @@ public class CharacterMotor : Photon.MonoBehaviour
 	{
 		IsGrounded = RaycastCollider (-Vector2.up);
         UpdateCharacterState();
-    }
-
-    private void OnCollisionEnter() 
-	{
-        onGround = true;
-    }
-
-    private void OnCollisionExit() 
-	{
-        onGround = false;
     }
 
 	protected virtual void OnDestroy() 
@@ -86,6 +80,16 @@ public class CharacterMotor : Photon.MonoBehaviour
             } else if (currentSpeed < 0f) 
 			{
                 currentSpeed = Mathf.Min(0f, currentSpeed + decelerationSpeed);
+            }
+        }
+
+        // Turn to movement
+        if (Math.Abs(rigidbodyObject.velocity.x) > turnSpeed) {
+            Vector3 localScale = transform.localScale;
+            if (rigidbodyObject.velocity.x > 0f) {
+                transform.localScale = new Vector3(Mathf.Abs(localScale.x), localScale.y, localScale.z);
+            } else {
+                transform.localScale = new Vector3(-Mathf.Abs(localScale.x), localScale.y, localScale.z);
             }
         }
 
