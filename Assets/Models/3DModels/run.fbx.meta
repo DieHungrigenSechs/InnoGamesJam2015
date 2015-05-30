@@ -1,0 +1,312 @@
+fileFormatVersion: 2
+guid: a9949522576652e468b10cefb71f60ec
+timeCreated: 1433003587
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: swat_rig_01_swat
+    100004: swat_rig_01_swat_char_Head
+    100006: swat_rig_01_swat_char_Hips
+    100008: swat_rig_01_swat_char_LeftArm
+    100010: swat_rig_01_swat_char_LeftFoot
+    100012: swat_rig_01_swat_char_LeftForeArm
+    100014: swat_rig_01_swat_char_LeftForeArmRoll
+    100016: swat_rig_01_swat_char_LeftHand
+    100018: swat_rig_01_swat_char_LeftHandIndex1
+    100020: swat_rig_01_swat_char_LeftHandIndex2
+    100022: swat_rig_01_swat_char_LeftHandIndex3
+    100024: swat_rig_01_swat_char_LeftHandIndex4
+    100026: swat_rig_01_swat_char_LeftHandMiddle1
+    100028: swat_rig_01_swat_char_LeftHandMiddle2
+    100030: swat_rig_01_swat_char_LeftHandMiddle3
+    100032: swat_rig_01_swat_char_LeftHandMiddle4
+    100034: swat_rig_01_swat_char_LeftHandThumb1
+    100036: swat_rig_01_swat_char_LeftHandThumb2
+    100038: swat_rig_01_swat_char_LeftHandThumb3
+    100040: swat_rig_01_swat_char_LeftHandThumb4
+    100042: swat_rig_01_swat_char_LeftLeg
+    100044: swat_rig_01_swat_char_LeftShoulder
+    100046: swat_rig_01_swat_char_LeftToeBase
+    100048: swat_rig_01_swat_char_LeftUpLeg
+    100050: swat_rig_01_swat_char_Neck
+    100052: swat_rig_01_swat_char_Neck1
+    100054: swat_rig_01_swat_char_Neck2
+    100056: swat_rig_01_swat_char_Reference
+    100058: swat_rig_01_swat_char_RightArm
+    100060: swat_rig_01_swat_char_RightFoot
+    100062: swat_rig_01_swat_char_RightForeArm
+    100064: swat_rig_01_swat_char_RightForeArmRoll
+    100066: swat_rig_01_swat_char_RightHand
+    100068: swat_rig_01_swat_char_RightHandIndex1
+    100070: swat_rig_01_swat_char_RightHandIndex2
+    100072: swat_rig_01_swat_char_RightHandIndex3
+    100074: swat_rig_01_swat_char_RightHandIndex4
+    100076: swat_rig_01_swat_char_RightHandMiddle1
+    100078: swat_rig_01_swat_char_RightHandMiddle2
+    100080: swat_rig_01_swat_char_RightHandMiddle3
+    100082: swat_rig_01_swat_char_RightHandMiddle4
+    100084: swat_rig_01_swat_char_RightHandThumb1
+    100086: swat_rig_01_swat_char_RightHandThumb2
+    100088: swat_rig_01_swat_char_RightHandThumb3
+    100090: swat_rig_01_swat_char_RightHandThumb4
+    100092: swat_rig_01_swat_char_RightLeg
+    100094: swat_rig_01_swat_char_RightShoulder
+    100096: swat_rig_01_swat_char_RightToeBase
+    100098: swat_rig_01_swat_char_RightUpLeg
+    100100: swat_rig_01_swat_char_Spine
+    100102: swat_rig_01_swat_char_Spine1
+    100104: swat_rig_01_swat_char_Spine2
+    100106: swat_rig_01_weapon_jnt
+    400000: //RootNode
+    400002: swat_rig_01_swat
+    400004: swat_rig_01_swat_char_Head
+    400006: swat_rig_01_swat_char_Hips
+    400008: swat_rig_01_swat_char_LeftArm
+    400010: swat_rig_01_swat_char_LeftFoot
+    400012: swat_rig_01_swat_char_LeftForeArm
+    400014: swat_rig_01_swat_char_LeftForeArmRoll
+    400016: swat_rig_01_swat_char_LeftHand
+    400018: swat_rig_01_swat_char_LeftHandIndex1
+    400020: swat_rig_01_swat_char_LeftHandIndex2
+    400022: swat_rig_01_swat_char_LeftHandIndex3
+    400024: swat_rig_01_swat_char_LeftHandIndex4
+    400026: swat_rig_01_swat_char_LeftHandMiddle1
+    400028: swat_rig_01_swat_char_LeftHandMiddle2
+    400030: swat_rig_01_swat_char_LeftHandMiddle3
+    400032: swat_rig_01_swat_char_LeftHandMiddle4
+    400034: swat_rig_01_swat_char_LeftHandThumb1
+    400036: swat_rig_01_swat_char_LeftHandThumb2
+    400038: swat_rig_01_swat_char_LeftHandThumb3
+    400040: swat_rig_01_swat_char_LeftHandThumb4
+    400042: swat_rig_01_swat_char_LeftLeg
+    400044: swat_rig_01_swat_char_LeftShoulder
+    400046: swat_rig_01_swat_char_LeftToeBase
+    400048: swat_rig_01_swat_char_LeftUpLeg
+    400050: swat_rig_01_swat_char_Neck
+    400052: swat_rig_01_swat_char_Neck1
+    400054: swat_rig_01_swat_char_Neck2
+    400056: swat_rig_01_swat_char_Reference
+    400058: swat_rig_01_swat_char_RightArm
+    400060: swat_rig_01_swat_char_RightFoot
+    400062: swat_rig_01_swat_char_RightForeArm
+    400064: swat_rig_01_swat_char_RightForeArmRoll
+    400066: swat_rig_01_swat_char_RightHand
+    400068: swat_rig_01_swat_char_RightHandIndex1
+    400070: swat_rig_01_swat_char_RightHandIndex2
+    400072: swat_rig_01_swat_char_RightHandIndex3
+    400074: swat_rig_01_swat_char_RightHandIndex4
+    400076: swat_rig_01_swat_char_RightHandMiddle1
+    400078: swat_rig_01_swat_char_RightHandMiddle2
+    400080: swat_rig_01_swat_char_RightHandMiddle3
+    400082: swat_rig_01_swat_char_RightHandMiddle4
+    400084: swat_rig_01_swat_char_RightHandThumb1
+    400086: swat_rig_01_swat_char_RightHandThumb2
+    400088: swat_rig_01_swat_char_RightHandThumb3
+    400090: swat_rig_01_swat_char_RightHandThumb4
+    400092: swat_rig_01_swat_char_RightLeg
+    400094: swat_rig_01_swat_char_RightShoulder
+    400096: swat_rig_01_swat_char_RightToeBase
+    400098: swat_rig_01_swat_char_RightUpLeg
+    400100: swat_rig_01_swat_char_Spine
+    400102: swat_rig_01_swat_char_Spine1
+    400104: swat_rig_01_swat_char_Spine2
+    400106: swat_rig_01_weapon_jnt
+    4300000: swat_rig_01_swat
+    7400000: Run
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: swat_rig_01_swat
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 20
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: swat_rig_01_swat
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_LeftUpLeg
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_LeftUpLeg/swat_rig_01_swat_char_LeftLeg
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_LeftUpLeg/swat_rig_01_swat_char_LeftLeg/swat_rig_01_swat_char_LeftFoot
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_LeftUpLeg/swat_rig_01_swat_char_LeftLeg/swat_rig_01_swat_char_LeftFoot/swat_rig_01_swat_char_LeftToeBase
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_RightUpLeg
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_RightUpLeg/swat_rig_01_swat_char_RightLeg
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_RightUpLeg/swat_rig_01_swat_char_RightLeg/swat_rig_01_swat_char_RightFoot
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_RightUpLeg/swat_rig_01_swat_char_RightLeg/swat_rig_01_swat_char_RightFoot/swat_rig_01_swat_char_RightToeBase
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand/swat_rig_01_swat_char_LeftHandIndex1
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand/swat_rig_01_swat_char_LeftHandIndex1/swat_rig_01_swat_char_LeftHandIndex2
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand/swat_rig_01_swat_char_LeftHandIndex1/swat_rig_01_swat_char_LeftHandIndex2/swat_rig_01_swat_char_LeftHandIndex3
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand/swat_rig_01_swat_char_LeftHandIndex1/swat_rig_01_swat_char_LeftHandIndex2/swat_rig_01_swat_char_LeftHandIndex3/swat_rig_01_swat_char_LeftHandIndex4
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand/swat_rig_01_swat_char_LeftHandMiddle1
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand/swat_rig_01_swat_char_LeftHandMiddle1/swat_rig_01_swat_char_LeftHandMiddle2
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand/swat_rig_01_swat_char_LeftHandMiddle1/swat_rig_01_swat_char_LeftHandMiddle2/swat_rig_01_swat_char_LeftHandMiddle3
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand/swat_rig_01_swat_char_LeftHandMiddle1/swat_rig_01_swat_char_LeftHandMiddle2/swat_rig_01_swat_char_LeftHandMiddle3/swat_rig_01_swat_char_LeftHandMiddle4
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand/swat_rig_01_swat_char_LeftHandThumb1
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand/swat_rig_01_swat_char_LeftHandThumb1/swat_rig_01_swat_char_LeftHandThumb2
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand/swat_rig_01_swat_char_LeftHandThumb1/swat_rig_01_swat_char_LeftHandThumb2/swat_rig_01_swat_char_LeftHandThumb3
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_LeftShoulder/swat_rig_01_swat_char_LeftArm/swat_rig_01_swat_char_LeftForeArm/swat_rig_01_swat_char_LeftForeArmRoll/swat_rig_01_swat_char_LeftHand/swat_rig_01_swat_char_LeftHandThumb1/swat_rig_01_swat_char_LeftHandThumb2/swat_rig_01_swat_char_LeftHandThumb3/swat_rig_01_swat_char_LeftHandThumb4
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_Neck
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_Neck/swat_rig_01_swat_char_Neck1
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_Neck/swat_rig_01_swat_char_Neck1/swat_rig_01_swat_char_Neck2
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_Neck/swat_rig_01_swat_char_Neck1/swat_rig_01_swat_char_Neck2/swat_rig_01_swat_char_Head
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_swat_char_RightHandIndex1
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_swat_char_RightHandIndex1/swat_rig_01_swat_char_RightHandIndex2
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_swat_char_RightHandIndex1/swat_rig_01_swat_char_RightHandIndex2/swat_rig_01_swat_char_RightHandIndex3
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_swat_char_RightHandIndex1/swat_rig_01_swat_char_RightHandIndex2/swat_rig_01_swat_char_RightHandIndex3/swat_rig_01_swat_char_RightHandIndex4
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_swat_char_RightHandMiddle1
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_swat_char_RightHandMiddle1/swat_rig_01_swat_char_RightHandMiddle2
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_swat_char_RightHandMiddle1/swat_rig_01_swat_char_RightHandMiddle2/swat_rig_01_swat_char_RightHandMiddle3
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_swat_char_RightHandMiddle1/swat_rig_01_swat_char_RightHandMiddle2/swat_rig_01_swat_char_RightHandMiddle3/swat_rig_01_swat_char_RightHandMiddle4
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_swat_char_RightHandThumb1
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_swat_char_RightHandThumb1/swat_rig_01_swat_char_RightHandThumb2
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_swat_char_RightHandThumb1/swat_rig_01_swat_char_RightHandThumb2/swat_rig_01_swat_char_RightHandThumb3
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_swat_char_RightHandThumb1/swat_rig_01_swat_char_RightHandThumb2/swat_rig_01_swat_char_RightHandThumb3/swat_rig_01_swat_char_RightHandThumb4
+        weight: 1
+      - path: swat_rig_01_swat_char_Reference/swat_rig_01_swat_char_Hips/swat_rig_01_swat_char_Spine/swat_rig_01_swat_char_Spine1/swat_rig_01_swat_char_Spine2/swat_rig_01_swat_char_RightShoulder/swat_rig_01_swat_char_RightArm/swat_rig_01_swat_char_RightForeArm/swat_rig_01_swat_char_RightForeArmRoll/swat_rig_01_swat_char_RightHand/swat_rig_01_weapon_jnt
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
