@@ -33,7 +33,7 @@ public class WeaponHolderArm : MonoBehaviour
     {
         var weaponEquipped = r.sprite != defaultSprite;
 
-        if(weaponEquipped)
+        if (weaponEquipped)
         {
             transform.localRotation = Quaternion.Euler(0, 0, -90);
 
