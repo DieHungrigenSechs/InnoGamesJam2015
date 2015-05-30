@@ -30,4 +30,9 @@ public class TimeScaleGlitch : BugPhysics
 		Time.fixedDeltaTime = Time.fixedDeltaTime*slowFactor;  
 		Time.maximumDeltaTime = Time.maximumDeltaTime*slowFactor;
 	}
+
+	private void OnDestroy()
+	{
+		Reset();
+	}
 }
