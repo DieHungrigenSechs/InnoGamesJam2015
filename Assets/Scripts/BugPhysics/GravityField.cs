@@ -40,4 +40,11 @@ public class GravityField : BugPhysics {
         base.Reset();
         Destroy(gameObject);
     }
+
+    protected virtual void OnDrawGizmos() {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.color = Color.gray;
+        Gizmos.DrawWireSphere(transform.position, radius * Mathf.Clamp01(dampingStart));
+    }
 }
