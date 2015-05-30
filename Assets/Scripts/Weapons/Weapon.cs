@@ -10,6 +10,7 @@ public abstract class Weapon : MonoBehaviour {
     protected float fireRate = 0.5f;
 
     protected GameObject projectilePrefab;
+    protected Sprite armSprite;
 
     private CharacterMotor characterMotor;
 
@@ -18,6 +19,11 @@ public abstract class Weapon : MonoBehaviour {
     protected void Start() {
         isNPC = (!GetComponent<CharacterInput>());
         characterMotor = GetComponent<CharacterMotor>();
+    }
+
+    void OnEnable()
+    {
+        GetComponentInChildren<WeaponHolderArm>().sprite = armSprite;
     }
 
     public void Attack() {
