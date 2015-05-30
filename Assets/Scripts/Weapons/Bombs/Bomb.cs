@@ -15,7 +15,7 @@ public class Bomb : MonoBehaviour {
     }
 
     public IEnumerator Arm(float timerInSeconds) {
-         yield return new WaitForSeconds(timerInSeconds);
+        yield return new WaitForSeconds(timerInSeconds);
         Explode();
     }
 
