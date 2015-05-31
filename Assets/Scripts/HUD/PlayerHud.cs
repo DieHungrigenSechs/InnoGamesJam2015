@@ -4,8 +4,7 @@ using UnityEngine.UI;
 public class PlayerHud : BasicHud
 {
 	[SerializeField] Slider slider;
-	[SerializeField] PlayerHealth hud;
-	PlayerHealth health;
+	[SerializeField] PlayerHealth health;
 
 	protected override void Awake ()
 	{
