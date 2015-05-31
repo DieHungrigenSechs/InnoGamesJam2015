@@ -6,6 +6,13 @@ public class Rocket:Projectiles
 
     private Rigidbody2D rocketRigidbody;
 
+	protected override void Awake ()
+	{
+		
+		damage = 20;
+		base.Awake ();
+	}
+
     protected void OnEnable() {
         rocketRigidbody = GetComponent<Rigidbody2D>();
     }
