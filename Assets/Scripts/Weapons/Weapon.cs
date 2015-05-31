@@ -40,7 +40,7 @@ public abstract class Weapon : MonoBehaviour {
         Vector2 direction = target - myPos;
         direction.Normalize();
         Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
-        Vector3 spawnPosition = new Vector3(transform.position.x + direction.x * projectileStartYOffset, transform.position.y + projectileStartYOffset + direction.y * projectileStartYOffset, 0f);
+        Vector3 spawnPosition = new Vector3(transform.position.x + direction.x * projectileStartMovement, transform.position.y + projectileStartYOffset + direction.y * projectileStartMovement, 0f);
 
         GameObject shot = Instantiate(projectilePrefab, spawnPosition, rotation) as GameObject;
         Rigidbody2D shotRigidbody = shot.GetComponent<Rigidbody2D>();
