@@ -2,11 +2,12 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(InputManager))]
 public class CharacterInput : Photon.MonoBehaviour
 {
 
     protected CharacterMotor characterMotor;
-
+	protected InputManager inputManager;
     public Texture2D crosshairTexture;
 
     public void OnGUI() {
@@ -15,6 +16,11 @@ public class CharacterInput : Photon.MonoBehaviour
 
     protected virtual void Awake()
     {
+		inputManager = GetComponent<InputManager>();
+		if(!inputManager)
+		{
+			inputManager = gameObject.AddComponent<InputManager>();
+		}
         crosshairTexture = Resources.Load<Texture2D>("Crosshair");
         characterMotor = GetComponent<CharacterMotor>();
         if (!characterMotor) {
@@ -25,7 +31,8 @@ public class CharacterInput : Photon.MonoBehaviour
 
     protected void Update() {
         // Wweapon switching
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) 
+		{
             SelectWeapon(0); 
         } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
             SelectWeapon(1);
@@ -42,35 +49,38 @@ public class CharacterInput : Photon.MonoBehaviour
     protected virtual void FixedUpdate() 
 	{
 
-        if (Input.GetAxis("Horizontal") < 0) 
+		if (inputManager.Horizontal < 0) 
 		{
 			characterMotor.MoveLeft();
         }
 
-		if (Input.GetAxis("Horizontal") > 0) 
+		if (inputManager.Horizontal > 0) 
 		{
 			characterMotor.MoveRight();
         }
 
-        if (Input.GetAxis("Jump") != 0) 
+		if (inputManager.Jump != 0) 
 		{
 			characterMotor.Jump();
         }
 
-        if (Input.GetAxis("Fire1") != 0) {
+		if (inputManager.Action) 
+		{
             characterMotor.Attack();
         }
 
         // Change player direction depending on mouse position
-        Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+		Vector2 input = Camera.main.ScreenToWorldPoint (inputManager.Position);
         // Threshold for direction change to prevent crazy direction flickering when cursor is close to player
-        float distance = Mathf.Abs(mouseWorldPosition.x - transform.position.x);
-        if (distance > 0.05f) {
-            characterMotor.IsTurnedToRight = (mouseWorldPosition.x > transform.position.x);
+        float distance = Mathf.Abs(input.x - transform.position.x);
+        if (distance > 0.05f) 
+		{
+            characterMotor.IsTurnedToRight = (input.x > transform.position.x);
         }
     }
 
-    protected void SelectWeapon(int weaponId) {
+    protected void SelectWeapon(int weaponId) 
+	{
         Weapon[] weapon = new Weapon[3];
         weapon[0] = GetComponent<Pistol>();
         weapon[1] = GetComponent<Machinegun>();

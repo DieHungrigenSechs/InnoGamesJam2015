@@ -7,6 +7,7 @@
 	Singleplayer,
 	Multiplayer,
 	MultiplayerLobby,
+	MultiplayerLocal,
 	Options,
 	Credits,
 }
