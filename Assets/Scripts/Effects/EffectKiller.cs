@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EffectKiller : MonoBehaviour {
-    private IEnumerator Start() {
-        yield return new WaitForSeconds(GetComponent<ParticleSystem>().duration);
-        Destroy(gameObject);
+    private void Start() {
+        Destroy(gameObject, GetComponent<ParticleSystem>().duration);
     }
 }   
