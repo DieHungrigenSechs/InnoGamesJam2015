@@ -9,6 +9,7 @@ public class TriggerSomethingElse : MonoBehaviour
     {
 	    foreach(var go in objectsToTrigger)
         {
+            print("triggering " + go);
             go.SendMessage("OnTriggerAction");
         }
 	}
