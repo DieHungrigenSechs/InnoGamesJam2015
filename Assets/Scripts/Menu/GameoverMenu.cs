@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameoverMenu : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+public class GameoverMenu : BasicMenu 
+{
+	[SerializeField] float wait = 2f;
+	private IEnumerator Start()
+	{
+		yield return new WaitForSeconds(wait);
+		LoadLevel(LevelEnum.MainMenu);
 	}
 }

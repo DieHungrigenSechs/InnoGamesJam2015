@@ -12,7 +12,11 @@ public class PlayerHealth : MonoBehaviour
 		lifeCounter += value;
 		if(lifeCounter <= 0)
 		{
-			deadPlayer.Invoke();
+			BasicMenu menu = GameObject.FindObjectOfType<BasicMenu>();
+			if(menu)
+			{
+				menu.LoadLevel(LevelEnum.GameOver);
+			}
 		}
 	}
 
