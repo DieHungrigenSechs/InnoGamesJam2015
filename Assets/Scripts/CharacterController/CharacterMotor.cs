@@ -5,39 +5,30 @@ public class CharacterMotor : Photon.MonoBehaviour
 {
     [SerializeField]
     private float maxSpeed = 15f;
+    [SerializeField]
+    private float acceleration = 3f;
+    [SerializeField]
+    private float airAcceleration = 3f;
 
     [SerializeField]
-    private float accelerationSpeed = 3f;
-
-    [SerializeField]
-    private float decelerationSpeed = 5f;
+    private float horizontalDrag = 5f;
 
     [SerializeField]
     private float jumpPower = 10f;
 
-    [SerializeField]
-    private float turnSpeed = 10f;
-
     private Rigidbody2D rigidbodyObject;
-    private BoxCollider2D colliderObject;
     private Animator animatorObject;
 
-    private float currentSpeed;
-
-    private float jumpPowerToApply;
-
-    private bool accelerated;
+    private float inputHorizontal;
+    private bool inputJump;
 
 	private FollowCamera camera;
-
-	private Vector2 lastVelocity;
-
     private bool isNPC;
+
 
     protected virtual void Awake()
     {
         rigidbodyObject = GetComponent<Rigidbody2D>();
-        colliderObject = GetComponent<BoxCollider2D>();
         animatorObject = GetComponentInChildren<Animator>();
 
         isNPC = (!GetComponent<CharacterInput>());
@@ -64,70 +55,68 @@ public class CharacterMotor : Photon.MonoBehaviour
 
 	private bool RaycastCollider(Vector2 direction)
 	{
-        float length = colliderObject.size.y / 2f + 0.05f;
+        float length =  0.05f;
         var pos = transform.position;
         var layers = ~LayerMask.GetMask("Human", "Ignore Raycast");
-		RaycastHit2D hit = Physics2D.Raycast(new Vector2(pos.x, pos.y) + colliderObject.offset, direction.normalized, length, layers);
+		RaycastHit2D hit = Physics2D.Raycast(new Vector2(pos.x, pos.y), direction.normalized, length, layers);
 		return hit;
 	}
 
     public void UpdateCharacterState()
     {
-        // Movement X axis
-        rigidbodyObject.AddForce(new Vector2(currentSpeed, 0f));
-        if (accelerated) 
+
+        var v = rigidbodyObject.velocity;
+        if(inputHorizontal == 0)
 		{
-            accelerated = false;
-        } 
-		else 
+            v.x = Mathf.MoveTowards(v.x, 0, horizontalDrag * Time.deltaTime);
+        }
+        else
+        {
+            var acc = inputHorizontal * (IsGrounded ? acceleration : airAcceleration);
+            v.x += acc;
+        }
+        v.x = Mathf.Clamp(v.x, -maxSpeed, maxSpeed);
+
+        if (inputJump && IsGrounded) 
 		{
-            if (currentSpeed > 0f) 
-			{
-                currentSpeed = Mathf.Max(0f, currentSpeed - decelerationSpeed);
-            } else if (currentSpeed < 0f) 
-			{
-                currentSpeed = Mathf.Min(0f, currentSpeed + decelerationSpeed);
-            }
+            v.y += jumpPower;
+            animatorObject.SetTrigger("Jump");
         }
 
-        animatorObject.SetFloat("Speed", Mathf.Abs(currentSpeed));
+        rigidbodyObject.velocity = v;
+
+        animatorObject.SetFloat("Speed", Mathf.Abs(inputHorizontal));
         animatorObject.SetBool("Grounded", IsGrounded);
 
         // Turn to movement direction (NPCs only)
-        if (isNPC && Math.Abs(currentSpeed) > turnSpeed) {
-            IsTurnedToRight = (currentSpeed > 0f);
+        if (isNPC) {
+            IsTurnedToRight = (inputHorizontal > 0f);
         }
 
-        // Movement y axis
-        if (jumpPowerToApply > 0f && IsGrounded) 
-		{
-            rigidbodyObject.AddForce(new Vector2(0f, jumpPowerToApply), ForceMode2D.Impulse);
-            animatorObject.SetTrigger("Jump");
-        }
-        jumpPowerToApply = 0f;
+        inputHorizontal = 0;
+        inputJump = false;
     }
 
 	public bool IsGrounded {get;set;}
 
     public void MoveLeft()
     {
-		Move(-accelerationSpeed);
+		Move(-airAcceleration);
     }
 
     public void MoveRight() 
 	{
-		Move(accelerationSpeed);
+		Move(airAcceleration);
     }
 
 	public void Move(float accelerationSpeed)
 	{
-		accelerated = true;
 		ChangeSpeed(accelerationSpeed);
 	}
 
     private void ChangeSpeed(float change)
     {
-        currentSpeed = Mathf.Clamp(currentSpeed + change, -maxSpeed, maxSpeed);
+        inputHorizontal = change;
     }
 
 	public Vector2 Velocity
@@ -146,7 +135,7 @@ public class CharacterMotor : Photon.MonoBehaviour
 	{
         if (rigidbodyObject.velocity.y <= 0f) 
 		{
-            jumpPowerToApply = jumpPower;
+            inputJump = true;
         }
     }
 
