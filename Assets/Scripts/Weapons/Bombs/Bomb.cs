@@ -23,6 +23,7 @@ public class Bomb : Projectiles {
 	{
 		base.Awake();
         StartCoroutine(Arm(3.0f));
+		damage = 5;
     }
 
     public IEnumerator Arm(float timerInSeconds) {
