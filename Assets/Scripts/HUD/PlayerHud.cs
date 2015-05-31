@@ -4,12 +4,17 @@ using UnityEngine.UI;
 public class PlayerHud : BasicHud
 {
 	[SerializeField] Slider slider;
+	[SerializeField] PlayerHealth hud;
 	PlayerHealth health;
 
 	protected override void Awake ()
 	{
 		base.Awake ();
-		health = GameObject.FindObjectOfType<PlayerHealth>();
+
+		if(!health)
+		{
+			health = GameObject.FindObjectOfType<PlayerHealth>();
+		}
 	}
 
 	protected override void Start ()
