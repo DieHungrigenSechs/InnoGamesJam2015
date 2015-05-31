@@ -5,8 +5,7 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(InputManager))]
 public class CharacterInput : Photon.MonoBehaviour
 {
-	public enum ActionChange { Teleport, Fly, Bounce,TimeScale }
-	[SerializeField] ActionChange action;
+	[SerializeField] int action;
     protected CharacterMotor characterMotor;
 	protected InputManager inputManager;
     public Texture2D crosshairTexture;
@@ -45,6 +44,34 @@ public class CharacterInput : Photon.MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G)) {
             characterMotor.ThrowBomb();
         }
+
+		action +=inputManager.SwitchGlitch;
+		action =  Mathf.Clamp(action,0,3);
+		if(inputManager.Action)
+		{
+			switch(action)
+			{
+			case 0:
+				if(!gameObject.GetComponent<FlyMode>())
+				{
+					gameObject.AddComponent<FlyMode>();
+				}
+				break;
+			case 1:
+				if(!gameObject.GetComponent<BounceBug>())
+				{
+					gameObject.AddComponent<BounceBug>();
+				}
+				break;
+				
+			case 2:
+				if(!gameObject.GetComponent<TeleportGlitch>())
+				{
+					gameObject.AddComponent<TeleportGlitch>();
+				}
+				break;
+			}
+		}
     }
 
     protected virtual void FixedUpdate() 
@@ -69,37 +96,6 @@ public class CharacterInput : Photon.MonoBehaviour
 		{
             characterMotor.Attack();
         }
-
-		if(inputManager.Action)
-		{
-			switch(action)
-			{
-			case ActionChange.Teleport:
-				if(!gameObject.GetComponent<TeleportGlitch>())
-				{
-					gameObject.AddComponent<TeleportGlitch>();
-				}
-				break;
-			case ActionChange.Fly:
-				if(!gameObject.GetComponent<FlyMode>())
-				{
-					gameObject.AddComponent<FlyMode>();
-				}
-				break;
-			case ActionChange.Bounce:
-				if(!gameObject.GetComponent<BounceBug>())
-				{
-					gameObject.AddComponent<BounceBug>();
-				}
-				break;
-			case ActionChange.TimeScale:
-				if(!gameObject.GetComponent<GravityField>())
-				{
-					gameObject.AddComponent<GravityField>();
-				}
-				break;
-			}
-		}
 
         // Change player direction depending on mouse position
 		Vector2 input = Camera.main.ScreenToWorldPoint (inputManager.Position);
@@ -128,4 +124,9 @@ public class CharacterInput : Photon.MonoBehaviour
             weapon[weaponId].enabled = true;
         }
     }
+
+	public int GetAction()
+	{
+		return action;
+	}
 }
