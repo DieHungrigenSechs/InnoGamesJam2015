@@ -1,21 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerHealth : MonoBehaviour 
+public class NPCHealth : MonoBehaviour 
 {
-	delegate void DeadPlayerDelegate();
-	 DeadPlayerDelegate deadPlayer;
 	[SerializeField] private float lifeCounter = 100;
-
+	
 	public void SetEnergy(float value)
 	{
 		lifeCounter += lifeCounter;
 		if(lifeCounter <= 0)
 		{
-			deadPlayer.Invoke();
+			Destroy(gameObject);
 		}
 	}
-
+	
 	public float Energy
 	{
 		get
