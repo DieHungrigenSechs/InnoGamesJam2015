@@ -5,6 +5,7 @@ public class PlayerHud : BasicHud
 {
 	[SerializeField] Slider slider;
 	PlayerHealth health;
+
 	protected override void Awake ()
 	{
 		base.Awake ();

@@ -1,16 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class NPCHud : BasicHud
 {
-
-	// Use this for initialization
-	void Start () {
-	
+	[SerializeField] Slider slider;
+	NPCHealth health;
+	protected override void Awake ()
+	{
+		base.Awake ();
+		health = GameObject.FindObjectOfType<NPCHealth>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	protected override void Start ()
+	{
+		base.Start ();
+		
+		slider.minValue = 0f;
+		slider.maxValue = 100f;
+	}
 	
+	protected override void Update ()
+	{
+		base.Update ();
+		slider.value = health.Energy;
 	}
 }
