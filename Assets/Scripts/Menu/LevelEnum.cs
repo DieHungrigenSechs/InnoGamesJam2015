@@ -8,6 +8,7 @@
 	Multiplayer,
 	MultiplayerLobby,
 	MultiplayerLocal,
+    Level01,
     BossLevel,
 	Options,
 	Credits,

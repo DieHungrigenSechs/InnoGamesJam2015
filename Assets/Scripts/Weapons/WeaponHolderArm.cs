@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WeaponHolderArm : MonoBehaviour
-{
+public class WeaponHolderArm : MonoBehaviour {
+    public CharacterMotor motor;
+
     private SpriteRenderer r;
     private Sprite defaultSprite;
     private Transform armRoot;
-    private CharacterMotor motor;
     private bool awoken = false;
 
 	void Awake()
@@ -17,7 +17,6 @@ public class WeaponHolderArm : MonoBehaviour
         r = GetComponent<SpriteRenderer>();
         defaultSprite = r.sprite;
         armRoot = transform.parent;
-        motor = transform.root.GetComponent<CharacterMotor>();
 	}
 	
 	public Sprite sprite
@@ -42,9 +41,11 @@ public class WeaponHolderArm : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 0, -90);
 
             var target = motor.GetTargetPosition();
-            var direction = target - transform.position;
-            direction.x = Mathf.Abs(direction.x);
-            armRoot.rotation = Quaternion.LookRotation(Vector3.forward, direction) * Quaternion.Euler(0, 0, 180);
+            if (target != null) {
+                var direction = target - transform.position;
+                direction.x = Mathf.Abs(direction.x);
+                armRoot.rotation = Quaternion.LookRotation(Vector3.forward, direction)*Quaternion.Euler(0, 0, 180);
+            }
         }
     }
 
