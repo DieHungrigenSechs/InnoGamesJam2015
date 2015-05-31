@@ -47,11 +47,19 @@ public class InputManager : MonoBehaviour
 		}
 	}
 
+	public bool Shoot
+	{
+		get
+		{
+			return Input.GetAxis("Fire1") != 0;
+		}
+	}
+
 	public bool Action
 	{
 		get
 		{
-			return Input.GetKey(KeyCode.E) || Input.GetAxis("Fire1") != 0;
+			return Input.GetAxis("Fire2") != 0;
 		}
 	}
 }

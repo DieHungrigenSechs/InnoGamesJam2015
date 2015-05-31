@@ -5,7 +5,7 @@ using DG.Tweening;
 public class TeleportGlitch : BugPhysics
 {
 	[SerializeField] float speed = 1f;
-	[SerializeField] Vector3[] directions;
+	[SerializeField] Vector2[] directions;
 	private Color[] colors;
 	SpriteRenderer[] renderers;
 
@@ -17,7 +17,15 @@ public class TeleportGlitch : BugPhysics
 	protected override void Start ()
 	{
 		base.Start ();
-		
+
+		if(directions == null)
+		{
+			directions = new Vector2[Random.Range(0,10)];
+			for(int i = 0; i < directions.Length;i++)
+			{
+				directions[i] = new Vector2(Random.Range(5,20),0);
+			}
+		}
 		colors = new Color[renderers.Length];
 		for(int i = 0; i < renderers.Length;i++)
 		{
@@ -43,7 +51,7 @@ public class TeleportGlitch : BugPhysics
 			{
 				Color color = renderers[i].color;
 				color.a = Flash(colors[i].a,Random.Range(0.5f,1f),Random.Range(0.5f,1f));
-				renderers[i].color = color;
+				//renderers[i].color = color;
 			}
 			count--;
 			StartCoroutine(Flickered(time,count));
@@ -52,7 +60,7 @@ public class TeleportGlitch : BugPhysics
 		{
 			for(int i = 0; i < renderers.Length;i++)
 			{
-				renderers[i].color = colors[i];
+				renderers[i].color = this.colors[i];
 			}
 		}
 	}
@@ -61,11 +69,21 @@ public class TeleportGlitch : BugPhysics
 	{
 		StartCoroutine(Flickered(Time.deltaTime, 100));
 		yield return new WaitForSeconds(time);
-		transform.position += directions[Mathf.Clamp(count,0,directions.Length-1)];
+		transform.position += (Vector3)directions[Mathf.Clamp(count,0,directions.Length-1)] * Time.deltaTime * transform.localScale.x;
 		if(count > 1)
 		{
 			count--;
 			StartCoroutine(GoBackToPosition(time,count));
+		}
+	}
+
+	protected override void Reset ()
+	{
+		base.Reset ();
+		for(int i = 0; i < renderers.Length;i++)
+		{
+			Debug.Log(colors[i]);
+			renderers[i].color = colors[i];
 		}
 	}
 
