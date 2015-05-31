@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8181667585076274b8f0f5707cf25b5e
-timeCreated: 1433012101
+timeCreated: 1433063018
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -64,12 +64,12 @@ TextureImporter:
     - name: Right Arm Lower
       rect:
         serializedVersion: 2
-        x: 9
-        y: 679
-        width: 101
-        height: 269
+        x: 25
+        y: 750
+        width: 66
+        height: 198
       alignment: 9
-      pivot: {x: .536824286, y: .873312354}
+      pivot: {x: .334146261, y: .873783946}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Arm Right
       rect:
@@ -84,12 +84,12 @@ TextureImporter:
     - name: Arm Left Lower
       rect:
         serializedVersion: 2
-        x: 301
-        y: 663
-        width: 107
-        height: 268
+        x: 319
+        y: 727
+        width: 79
+        height: 198
       alignment: 9
-      pivot: {x: .586899221, y: .853888452}
+      pivot: {x: .361887097, y: .86661011}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Arm Left
       rect:
@@ -104,29 +104,29 @@ TextureImporter:
     - name: Head
       rect:
         serializedVersion: 2
-        x: 686
-        y: 590
-        width: 178
-        height: 273
+        x: 687
+        y: 599
+        width: 159
+        height: 255
       alignment: 9
-      pivot: {x: .322392851, y: .118533403}
+      pivot: {x: .380872428, y: .118533388}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Torso
       rect:
         serializedVersion: 2
-        x: 9
-        y: 365
-        width: 172
-        height: 260
+        x: 10
+        y: 367
+        width: 171
+        height: 284
       alignment: 9
       pivot: {x: .478376001, y: .664507329}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Leg Higher
       rect:
         serializedVersion: 2
-        x: 309
-        y: 358
-        width: 114
+        x: 302
+        y: 360
+        width: 108
         height: 255
       alignment: 9
       pivot: {x: .434748858, y: .799002349}
@@ -134,8 +134,8 @@ TextureImporter:
     - name: Leg Lower
       rect:
         serializedVersion: 2
-        x: 462
-        y: 346
+        x: 475
+        y: 368
         width: 115
         height: 248
       alignment: 9
