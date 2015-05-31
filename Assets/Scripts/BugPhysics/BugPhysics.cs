@@ -8,7 +8,7 @@ public class BugPhysics : MonoBehaviour
 
 	protected virtual void Awake()
 	{
-		renderer = 	GetComponent<SpriteRenderer>();
+		//renderer = 	GetComponent<SpriteRenderer>();
 	}
 
 	protected virtual void Start()
