@@ -50,7 +50,7 @@ public class GenericTrigger : MonoBehaviour
 
         if(mustBeAtWaypoint)
         {
-            trigger = mustBeAtWaypoint == AIPlayer.current.currentOrLastWaypoint;
+            trigger = mustBeAtWaypoint == AIPlayer.current.lastWaypoint;
         }
 
         if(trigger)
