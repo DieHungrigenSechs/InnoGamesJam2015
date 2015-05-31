@@ -7,6 +7,6 @@ public class Machinegun : Weapon {
         armSprite = Resources.Load<Sprite>("Weapons/Machine Gun");
         fireRate = 0.1f;
         projectileStartYOffset = 1.4f;
-        projectileStartMovement = 1.4f;
+        projectileStartMovement = 1.55f;
     }
 }
