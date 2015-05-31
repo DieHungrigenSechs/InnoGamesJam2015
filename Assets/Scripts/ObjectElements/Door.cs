@@ -23,14 +23,20 @@ public class Door : BasicBehavior
 
 	protected override void OnCollisionEnter2D (Collision2D other)
 	{
-		base.OnCollisionEnter2D (other);
-		DoorAction(Action.Open);
+		if(other.transform.GetComponent<CharacterInput>())
+		{
+			base.OnCollisionEnter2D (other);
+			DoorAction(Action.Open);
+		}
 	}
 
 	protected override void OnTriggerExit2D (Collider2D other)
 	{
-		base.OnTriggerExit2D (other);
-		DoorAction(Action.Close);
+		if(other.transform.GetComponent<CharacterInput>())
+		{
+			base.OnTriggerExit2D (other);
+			DoorAction(Action.Close);
+		}
 	}
 
 	private void DoorAction(Action action)

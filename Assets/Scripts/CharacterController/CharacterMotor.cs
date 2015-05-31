@@ -56,11 +56,19 @@ public class CharacterMotor : Photon.MonoBehaviour
 	private bool RaycastCollider(Vector2 direction)
 	{
         float length =  0.05f;
-        var pos = transform.position;
+        var pos = new Vector2(transform.position.x, transform.position.y + 0.04f);
         var layers = ~LayerMask.GetMask("Human", "Ignore Raycast");
-		RaycastHit2D hit = Physics2D.Raycast(new Vector2(pos.x, pos.y), direction.normalized, length, layers);
+		//RaycastHit2D hit = Physics2D.Raycast(new Vector2(pos.x, pos.y), direction.normalized, length, layers);
+        //RaycastHit2D hit = Physics2D.OverlapArea(pos, new Vector2(0.3f, 0.1f), 0, Vector2.zero, 0, layers);
+        var halfsize = new Vector2(0.4f, 0.12f) / 2;
+        var hit = Physics2D.OverlapArea(pos - halfsize, pos + halfsize, layers);
 		return hit;
 	}
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube(transform.position + Vector3.up * 0.04f, new Vector3(0.4f, 0.12f, 1));
+    }
 
     public void UpdateCharacterState()
     {

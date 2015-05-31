@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour 
 {
 	delegate void DeadPlayerDelegate();
-	DeadPlayerDelegate deadPlayer;
+	 DeadPlayerDelegate deadPlayer;
 	[SerializeField] private float lifeCounter = 100;
 
 	public void SetEnergy(float value)
