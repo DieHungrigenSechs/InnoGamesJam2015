@@ -21,8 +21,14 @@ public abstract class Weapon : MonoBehaviour {
 
     void OnEnable()
     {
-        if (armSprite != null) {
-            GetComponentInChildren<WeaponHolderArm>().sprite = armSprite;
+        if (armSprite != null) 
+		{
+
+			WeaponHolderArm armHolder = GetComponentInChildren<WeaponHolderArm>();
+			if(armHolder)
+			{
+				armHolder.sprite = armSprite;
+			}
         }
         isNPC = (!GetComponent<CharacterInput>());
         characterMotor = GetComponent<CharacterMotor>();
@@ -45,7 +51,10 @@ public abstract class Weapon : MonoBehaviour {
         GameObject shot = Instantiate(projectilePrefab, spawnPosition, rotation) as GameObject;
         Rigidbody2D shotRigidbody = shot.GetComponent<Rigidbody2D>();
         if (shotRigidbody != null) {
-            shotRigidbody.velocity = direction * projectileInitialSpeed;
+            shotRigidbody.velocity = direction*projectileInitialSpeed;
+        }
+        else if (shot.GetComponent<Glitch>()) {
+            shot.GetComponent<Glitch>().speed = direction * projectileInitialSpeed;
         }
     }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Collider2D))]
 public class TimeStopGlitch : BugPhysics
 {
+	[SerializeField] SpriteRenderer renderer;
 	[SerializeField]
 	float offTime = 2f;
 	[SerializeField]
@@ -16,6 +17,8 @@ public class TimeStopGlitch : BugPhysics
 	{
 		base.Awake ();
 		collider = GetComponent<Collider2D>();
+
+		collider.isTrigger = true;
 	}
 	protected override void Start ()
 	{
@@ -36,6 +39,10 @@ public class TimeStopGlitch : BugPhysics
 		yield return new WaitForSeconds(duration);
 		if(collider.enabled)
 		{
+			if(renderer)
+			{
+				renderer.enabled = false;
+			}
 			collider.enabled = false;
 			StartCoroutine(AutomaticTimeChanger(offTime));
 			RemoveAll();
@@ -43,6 +50,10 @@ public class TimeStopGlitch : BugPhysics
 		}
 		else
 		{
+			if(renderer)
+			{
+				renderer.enabled = true;
+			}
 			collider.enabled = true;
 			StartCoroutine(AutomaticTimeChanger(onTime));
 		}
@@ -76,11 +87,19 @@ public class TimeStopGlitch : BugPhysics
 	{
 		foreach (KeyValuePair<GameObject, Vector2> pair in rigidbodies)
 		{
-			GameObject go = pair.Key;
-			Rigidbody2D body = go.GetComponent<Rigidbody2D>();
-			body.isKinematic = false;
-			body.velocity = pair.Value;
-			rigidbodies = new Dictionary<GameObject, Vector2>();
+			//Dirty way
+			try
+			{
+				GameObject go = pair.Key;
+				Rigidbody2D body = go.GetComponent<Rigidbody2D>();
+				body.isKinematic = false;
+				body.velocity = pair.Value;
+				rigidbodies = new Dictionary<GameObject, Vector2>();
+			}
+			catch
+			{
+
+			}
 		}
 	}
 
@@ -101,6 +120,15 @@ public class TimeStopGlitch : BugPhysics
 				rigidbody.isKinematic = false;
 				rigidbody.velocity = velocity;
 			}
+		}
+	}
+
+	protected virtual void OnDrawGizmos() 
+	{
+		CircleCollider2D circle = collider as CircleCollider2D;
+		if(circle)
+		{
+			Gizmos.DrawWireSphere(transform.position,circle.radius);
 		}
 	}
 

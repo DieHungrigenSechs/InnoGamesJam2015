@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
 	public void SetEnergy(float value)
 	{
-		lifeCounter += lifeCounter;
+		lifeCounter += value;
 		if(lifeCounter <= 0)
 		{
 			deadPlayer.Invoke();
