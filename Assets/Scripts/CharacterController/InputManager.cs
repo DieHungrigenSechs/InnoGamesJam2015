@@ -32,7 +32,7 @@ public class InputManager : MonoBehaviour
 	{
 		get
 		{
-			return	state.Buttons.A == ButtonState.Pressed;
+			return state.Buttons.A == ButtonState.Pressed;
 		}
 	}
 
@@ -56,7 +56,7 @@ public class InputManager : MonoBehaviour
 	{
 		get
 		{
-			return	state.Buttons.Back == ButtonState.Pressed;
+			return state.Buttons.Back == ButtonState.Pressed;
 		}
 	}
 
@@ -65,7 +65,7 @@ public class InputManager : MonoBehaviour
 	{
 		get
 		{
-			return	state.Buttons.B == ButtonState.Pressed;
+			return state.Buttons.B == ButtonState.Pressed;
 		}
 	}
 

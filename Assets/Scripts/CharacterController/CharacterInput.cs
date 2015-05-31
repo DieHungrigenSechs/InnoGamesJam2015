@@ -17,6 +17,10 @@ public class CharacterInput : Photon.MonoBehaviour
     protected virtual void Awake()
     {
 		inputManager = GetComponent<InputManager>();
+		if(!inputManager)
+		{
+			inputManager = gameObject.AddComponent<InputManager>();
+		}
         crosshairTexture = Resources.Load<Texture2D>("Crosshair");
         characterMotor = GetComponent<CharacterMotor>();
         if (!characterMotor) {

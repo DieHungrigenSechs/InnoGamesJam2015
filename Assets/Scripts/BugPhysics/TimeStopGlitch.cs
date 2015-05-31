@@ -4,6 +4,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Collider2D))]
 public class TimeStopGlitch : BugPhysics
 {
+	[SerializeField] SpriteRenderer renderer;
 	[SerializeField]
 	float offTime = 2f;
 	[SerializeField]
@@ -16,6 +17,7 @@ public class TimeStopGlitch : BugPhysics
 	{
 		base.Awake ();
 		collider = GetComponent<Collider2D>();
+
 		collider.isTrigger = true;
 	}
 	protected override void Start ()
@@ -37,6 +39,10 @@ public class TimeStopGlitch : BugPhysics
 		yield return new WaitForSeconds(duration);
 		if(collider.enabled)
 		{
+			if(renderer)
+			{
+				renderer.enabled = false;
+			}
 			collider.enabled = false;
 			StartCoroutine(AutomaticTimeChanger(offTime));
 			RemoveAll();
@@ -44,6 +50,10 @@ public class TimeStopGlitch : BugPhysics
 		}
 		else
 		{
+			if(renderer)
+			{
+				renderer.enabled = true;
+			}
 			collider.enabled = true;
 			StartCoroutine(AutomaticTimeChanger(onTime));
 		}
