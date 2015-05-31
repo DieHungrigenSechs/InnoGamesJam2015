@@ -2,22 +2,21 @@
 using System;
 using System.Collections;
 using XInputDotNetPure;
-
 public class InputManager : MonoBehaviour
 {
-	public PlayerIndex PlayerIndex { get; set; }
+	public PlayerIndex playerIndex;
 	GamePadState state;
 	GamePadState prevState;
 
 	private void Start()
 	{
-		state = GamePad.GetState(PlayerIndex);
+		state = GamePad.GetState(playerIndex);
 	}
 
 	private void Update()
 	{
 		prevState = state;
-		state = GamePad.GetState(PlayerIndex);
+		state = GamePad.GetState(playerIndex);
 	}
 
 	public bool AcceptDown
@@ -124,9 +123,9 @@ public class InputManager : MonoBehaviour
 
 	private IEnumerator Vibration(Vector2 direction,float duration)
 	{
-		GamePad.SetVibration(PlayerIndex,direction.x, direction.y);
+		GamePad.SetVibration(playerIndex,direction.x, direction.y);
 		yield return new WaitForSeconds(duration);
-		GamePad.SetVibration(PlayerIndex,0,0);
+		GamePad.SetVibration(playerIndex,0,0);
 	}
 
 	public void StopVibration()
