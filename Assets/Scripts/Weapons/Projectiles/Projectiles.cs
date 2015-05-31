@@ -8,6 +8,12 @@ public class Projectiles : MonoBehaviour
 	{
 
 	}
+
+    void Start()
+    {
+        Destroy(gameObject, 20);
+    }
+
 	protected virtual void OnCollisionEnter2D(Collision2D collision) 
 	{
 		PlayerHealth health = collision.gameObject.GetComponent<PlayerHealth>();
