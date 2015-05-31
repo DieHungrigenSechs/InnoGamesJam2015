@@ -15,6 +15,14 @@ public class InputManager : MonoBehaviour
 
 	}
 
+	public int SwitchGlitch
+	{
+		get
+		{
+			return -Convert.ToInt32(Input.GetKeyDown(KeyCode.Q)) + Convert.ToInt32( Input.GetKeyDown(KeyCode.E));
+		}
+	}
+
 	public float Horizontal
 	{
 		get

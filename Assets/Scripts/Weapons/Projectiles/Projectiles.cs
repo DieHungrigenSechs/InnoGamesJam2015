@@ -18,7 +18,6 @@ public class Projectiles : MonoBehaviour
 		PlayerHealth health = collision.gameObject.GetComponent<PlayerHealth>();
 		if(health)
 		{
-			Debug.Log(damage);
 			health.SetEnergy(-damage);
 		}
 		Destroy(gameObject);
