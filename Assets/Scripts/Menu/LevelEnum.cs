@@ -10,4 +10,5 @@
 	MultiplayerLocal,
 	Options,
 	Credits,
+	GameOver
 }

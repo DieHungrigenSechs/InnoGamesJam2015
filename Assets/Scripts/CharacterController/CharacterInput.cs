@@ -64,10 +64,26 @@ public class CharacterInput : Photon.MonoBehaviour
 			characterMotor.Jump();
         }
 
-		if (inputManager.Action) 
+		if (inputManager.Shoot) 
 		{
             characterMotor.Attack();
         }
+
+		if(inputManager.Action)
+		{
+//			if(!gameObject.GetComponent<TeleportGlitch>())
+//			{
+//				gameObject.AddComponent<TeleportGlitch>();
+//			}
+			if(!gameObject.GetComponent<FlyMode>())
+			{
+				gameObject.AddComponent<FlyMode>();
+			}
+//			if(!gameObject.GetComponent<BounceBug>())
+//			{
+//				gameObject.AddComponent<BounceBug>();
+//			}
+		}
 
         // Change player direction depending on mouse position
 		Vector2 input = Camera.main.ScreenToWorldPoint (inputManager.Position);
