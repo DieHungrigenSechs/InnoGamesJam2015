@@ -8,5 +8,6 @@ public class AITeleportGlitch : MonoBehaviour
         var pos = AIPlayer.current.currentWaypoint.transform.position;
         pos.z = transform.position.z;
         transform.position = pos;
+        Destroy(this);
 	}
 }
