@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HealthCollectible : Collectible {
+public class HealthCollectable : Collectable {
 
     protected void OnCollisionEnter2D(Collision2D other) {
         if (other.transform.GetComponent<CharacterInput>()) {

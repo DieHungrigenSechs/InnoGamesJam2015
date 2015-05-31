@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class Collectible : MonoBehaviour {
+public abstract class Collectable : MonoBehaviour {
 
     private float deSpawnTime = 20f;
 
