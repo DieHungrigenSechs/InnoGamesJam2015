@@ -24,7 +24,7 @@ public class CharacterInput : Photon.MonoBehaviour
     }
 
     protected void Update() {
-        // Wweapon switching
+        // Weapon switching
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             SelectWeapon(0); 
         } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
@@ -33,10 +33,18 @@ public class CharacterInput : Photon.MonoBehaviour
             SelectWeapon(2);
         }
 
+        // Glitch switching
+        if (Input.GetKeyDown(KeyCode.Q)) {
+
+        } else if (Input.GetKeyDown(KeyCode.E)) {
+            
+        }
+
         // Bomb
         if (Input.GetKeyDown(KeyCode.G)) {
             characterMotor.ThrowBomb();
         }
+
     }
 
     protected virtual void FixedUpdate() 
@@ -67,6 +75,13 @@ public class CharacterInput : Photon.MonoBehaviour
         float distance = Mathf.Abs(mouseWorldPosition.x - transform.position.x);
         if (distance > 0.05f) {
             characterMotor.IsTurnedToRight = (mouseWorldPosition.x > transform.position.x);
+        }
+
+        if (Input.GetAxis("Fire2") != 0) {
+            GlitchGun glitchGun = GetComponent<GlitchGun>();
+            if (glitchGun != null) {
+                glitchGun.Attack();
+            }
         }
     }
 

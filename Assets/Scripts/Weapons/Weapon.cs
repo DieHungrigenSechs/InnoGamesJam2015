@@ -45,7 +45,10 @@ public abstract class Weapon : MonoBehaviour {
         GameObject shot = Instantiate(projectilePrefab, spawnPosition, rotation) as GameObject;
         Rigidbody2D shotRigidbody = shot.GetComponent<Rigidbody2D>();
         if (shotRigidbody != null) {
-            shotRigidbody.velocity = direction * projectileInitialSpeed;
+            shotRigidbody.velocity = direction*projectileInitialSpeed;
+        }
+        else if (shot.GetComponent<Glitch>()) {
+            shot.GetComponent<Glitch>().speed = direction * projectileInitialSpeed;
         }
     }
 
