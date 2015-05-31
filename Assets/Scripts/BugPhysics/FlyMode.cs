@@ -13,10 +13,12 @@ public class FlyMode : BugPhysics
 		base.Awake ();
 		rigidbody = GetComponent<Rigidbody2D>(); 
 		characterMotor = GetComponent<CharacterMotor>();
+
 	}
 
 	protected override void Start ()
 	{
+		bugTime = Random.Range(3,20);
 		base.Start ();
 		
 		tempGravity = rigidbody.gravityScale;

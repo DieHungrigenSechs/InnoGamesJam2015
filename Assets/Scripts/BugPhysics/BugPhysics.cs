@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BugPhysics : MonoBehaviour 
 {
-	[SerializeField] float bugTime = 10f;
+	[SerializeField] protected float bugTime = 10f;
 	protected SpriteRenderer renderer;
 
 	protected virtual void Awake()
