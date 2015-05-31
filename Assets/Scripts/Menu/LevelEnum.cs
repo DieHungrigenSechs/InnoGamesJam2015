@@ -8,6 +8,7 @@
 	Multiplayer,
 	MultiplayerLobby,
 	MultiplayerLocal,
+    BossLevel,
 	Options,
 	Credits,
 	GameOver
