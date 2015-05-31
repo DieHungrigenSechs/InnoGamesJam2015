@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.ImageEffects;
+using System.Collections;
 
 [ExecuteInEditMode]
 [AddComponentMenu("Image Effects/Pixelate")]
 public class PostProcessPixelate : ImageEffectBase
 {
+    public static PostProcessPixelate instance { private set; get; }
+
     public Texture mask;
     public Vector2 movement;
     [Range(0, 1)]
     public float pixelPower = 0.4f;
     private Vector2 pos;
+
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Update()
     {
@@ -32,5 +41,22 @@ public class PostProcessPixelate : ImageEffectBase
         {
             Graphics.Blit(source, destination);
         }
+    }
+
+    public void Animate()
+    {
+        StartCoroutine(AnimateNow());
+    }
+
+    private IEnumerator AnimateNow()
+    {
+        pixelPower = 0.5f;
+        while(pixelPower > 0)
+        {
+            pixelPower -= Time.deltaTime * 1.8f;
+            yield return null;
+        }
+        pixelPower = 0;
+        yield break;
     }
 }
