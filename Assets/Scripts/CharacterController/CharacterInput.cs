@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(InputManager))]
 public class CharacterInput : Photon.MonoBehaviour
 {
-
+	public enum ActionChange { Teleport, Fly, Bounce,TimeScale }
+	[SerializeField] ActionChange action;
     protected CharacterMotor characterMotor;
 	protected InputManager inputManager;
     public Texture2D crosshairTexture;
@@ -71,18 +72,33 @@ public class CharacterInput : Photon.MonoBehaviour
 
 		if(inputManager.Action)
 		{
-//			if(!gameObject.GetComponent<TeleportGlitch>())
-//			{
-//				gameObject.AddComponent<TeleportGlitch>();
-//			}
-			if(!gameObject.GetComponent<FlyMode>())
+			switch(action)
 			{
-				gameObject.AddComponent<FlyMode>();
+			case ActionChange.Teleport:
+				if(!gameObject.GetComponent<TeleportGlitch>())
+				{
+					gameObject.AddComponent<TeleportGlitch>();
+				}
+				break;
+			case ActionChange.Fly:
+				if(!gameObject.GetComponent<FlyMode>())
+				{
+					gameObject.AddComponent<FlyMode>();
+				}
+				break;
+			case ActionChange.Bounce:
+				if(!gameObject.GetComponent<BounceBug>())
+				{
+					gameObject.AddComponent<BounceBug>();
+				}
+				break;
+			case ActionChange.TimeScale:
+				if(!gameObject.GetComponent<GravityField>())
+				{
+					gameObject.AddComponent<GravityField>();
+				}
+				break;
 			}
-//			if(!gameObject.GetComponent<BounceBug>())
-//			{
-//				gameObject.AddComponent<BounceBug>();
-//			}
 		}
 
         // Change player direction depending on mouse position

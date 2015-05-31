@@ -23,7 +23,7 @@ public class TeleportGlitch : BugPhysics
 			directions = new Vector2[Random.Range(0,10)];
 			for(int i = 0; i < directions.Length;i++)
 			{
-				directions[i] = new Vector2(Random.Range(5,20),0);
+				directions[i] = new Vector2(Random.Range(5,200),0);
 			}
 		}
 		colors = new Color[renderers.Length];
@@ -51,7 +51,7 @@ public class TeleportGlitch : BugPhysics
 			{
 				Color color = renderers[i].color;
 				color.a = Flash(colors[i].a,Random.Range(0.5f,1f),Random.Range(0.5f,1f));
-				//renderers[i].color = color;
+				renderers[i].color = color;
 			}
 			count--;
 			StartCoroutine(Flickered(time,count));
@@ -82,7 +82,6 @@ public class TeleportGlitch : BugPhysics
 		base.Reset ();
 		for(int i = 0; i < renderers.Length;i++)
 		{
-			Debug.Log(colors[i]);
 			renderers[i].color = colors[i];
 		}
 	}
