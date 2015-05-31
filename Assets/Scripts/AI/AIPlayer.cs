@@ -9,7 +9,10 @@ public class AIPlayer : MonoBehaviour
     public static AIPlayer current { private set; get; }
     private CharacterMotor motor;
     [SerializeField]
-    private AIWaypoint currentWaypoint;
+    private AIWaypoint _currentWaypoint;
+    private AIWaypoint _lastWaypoint;
+    public AIWaypoint currentOrLastWaypoint { get { return _currentWaypoint ?? _lastWaypoint; } }
+
 
 	void Awake()
     {
@@ -19,9 +22,9 @@ public class AIPlayer : MonoBehaviour
 	
 	void FixedUpdate()
     {
-	    if(currentWaypoint)
+        if(_currentWaypoint)
         {
-            var targetPosition = currentWaypoint.transform.position;
+            var targetPosition = _currentWaypoint.transform.position;
             targetPosition.y -= 1;
             var distance = targetPosition - transform.position;
             distance.z = 0;
@@ -39,8 +42,9 @@ public class AIPlayer : MonoBehaviour
             }
             else if(Mathf.Abs(distance.y) < verticalReachDistance)
             {
-                var wp = currentWaypoint;
-                currentWaypoint = null;
+                var wp = _currentWaypoint;
+                _lastWaypoint = _currentWaypoint;
+                _currentWaypoint = null;
                 wp.OnAIReached();
             }
         }
@@ -48,16 +52,16 @@ public class AIPlayer : MonoBehaviour
 
     internal void SetWaypoint(AIWaypoint waypoint)
     {
-        currentWaypoint = waypoint;
+        _currentWaypoint = waypoint;
     }
 
 #if UNITY_EDITOR
     void OnDrawGizmos()
     {
-        if(!currentWaypoint) return;
+        if(!_currentWaypoint) return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, currentWaypoint.transform.position);
+        Gizmos.DrawLine(transform.position, _currentWaypoint.transform.position);
     }
 #endif
 }

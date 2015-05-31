@@ -21,6 +21,9 @@ public class GenericTrigger : MonoBehaviour
     [SerializeField]
     private TriggerTimes triggerTimes;
 
+    [SerializeField]
+    private AIWaypoint mustBeAtWaypoint;
+
     public bool triggerable = true;
 
 
@@ -41,6 +44,14 @@ public class GenericTrigger : MonoBehaviour
             case InstigatorType.Any:
                 trigger = c.GetComponent<AIPlayer>() || c.GetComponent<CharacterInput>();
                 break;
+        }
+
+        if(!trigger) return;
+
+        if(mustBeAtWaypoint)
+        {
+            print(AIPlayer.current.currentOrLastWaypoint);
+            trigger = mustBeAtWaypoint == AIPlayer.current.currentOrLastWaypoint;
         }
 
         if(trigger)

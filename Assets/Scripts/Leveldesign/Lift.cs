@@ -15,12 +15,15 @@ public class Lift : MonoBehaviour
     private Vector3 targetPosition;
     public float speed = 5;
     public float stayTime = 3;
+    [SerializeField]
+    private bool loopOnceActivated;
 
+    //-1 = idle
     //0 = moving to target position
     //1 = waiting there
     //3 = moving back
-    //4 = idle again
-    private int phase = 4;
+    //4 = waiting to go there again
+    private int phase = -1;
     private float waiting = 0;
 
 
@@ -33,19 +36,22 @@ public class Lift : MonoBehaviour
 
     void OnTriggerAction()
     {
-        phase = 0;
+        if(phase == -1)
+            phase = 0;
 	}
 
     void FixedUpdate()
     {
-        if(phase == 4) return;
+        if(phase == -1) return;
 
-        if(phase == 1)
+        if(phase == 1 || phase == 4)
         {
             waiting += Time.deltaTime;
             if(waiting >= stayTime)
             {
-                phase = 2;
+                phase++;
+                if(phase == 5)
+                    phase = 0;
             }
             else
             {
@@ -63,6 +69,11 @@ public class Lift : MonoBehaviour
         {
             phase++;
             waiting = 0;
+        }
+
+        if(!loopOnceActivated && phase == 4)
+        {
+            phase = -1;
         }
     }
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 /// <summary>
 /// Eine AI Action, die dem KI-Spieler anweist, rumzuglitchen.
 /// </summary>
-[AddComponentMenu("AI/AIAction/Glitch")]
+[AddComponentMenu("AI/AIAction/Activate AI Glitch")]
 public class AIActionGlitch : MonoBehaviour
 {
     private enum GlitchType
@@ -21,7 +21,7 @@ public class AIActionGlitch : MonoBehaviour
     static AIActionGlitch()
     {
         glitchDict = new Dictionary<GlitchType, System.Type>();
-        glitchDict.Add(GlitchType.Teleport, typeof(TeleportGlitch));
+        glitchDict.Add(GlitchType.Teleport, typeof(AITeleportGlitch));
         glitchDict.Add(GlitchType.FlyMode, typeof(FlyMode));
         glitchDict.Add(GlitchType.Bounce, typeof(BounceBug));
     }
