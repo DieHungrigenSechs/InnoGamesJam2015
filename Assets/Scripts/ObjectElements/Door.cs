@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Door : BasicBehavior
 {
+	[SerializeField] LevelEnum nextLevel = LevelEnum.None;
 	private enum Action { Open, Close }
 	
 	[SerializeField] private Action action;
@@ -36,6 +37,11 @@ public class Door : BasicBehavior
 		{
 			base.OnTriggerExit2D (other);
 			DoorAction(Action.Close);
+			BasicMenu menu = GameObject.FindObjectOfType<BasicMenu>();
+			if(menu)
+			{
+				menu.LoadLevel(nextLevel);
+			}
 		}
 	}
 

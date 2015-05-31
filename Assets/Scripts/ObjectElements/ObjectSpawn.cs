@@ -5,33 +5,27 @@ public class ObjectSpawn : MonoBehaviour
 {
 	[SerializeField] GameObject spawnObject;
 	[SerializeField] float durationForNext;
-	[SerializeField] int amountSpawnIteration;
 	[SerializeField] bool randomTime;
-	[SerializeField] Vector3 offset;
+	[SerializeField] int maxCount = 1;
+	
+	[SerializeField] bool canSpawn = true;
 	GameObject currentObject;
+
 	// Use this for initialization
 	IEnumerator Start () 
 	{
-
-		for(int i = 0; i < amountSpawnIteration; i++)
+		while (canSpawn)
 		{
 			yield return new WaitForSeconds(GetTimer());
-			SpawnObjectOnPlace();
-		}
-		while (amountSpawnIteration < 0)
-		{
-			yield return new WaitForSeconds(GetTimer());
-			SpawnObjectOnPlace();
-		}
-	}
+			GameObject spawn = Instantiate(spawnObject,transform.position,Quaternion.identity) as GameObject;
+			spawn.transform.SetParent(transform);
 
-	void SpawnObjectOnPlace()
-	{
-		if(currentObject)
-		{
-			Destroy(currentObject);
+			if(transform.childCount > maxCount)
+			{
+				Destroy(transform.GetChild(0).gameObject);
+			}
 		}
-		currentObject = Instantiate(spawnObject,transform.position + offset,Quaternion.identity) as GameObject;
+
 	}
 
 	private float GetTimer()
