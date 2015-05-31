@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(InputManager))]
 public class CharacterInput : Photon.MonoBehaviour
 {
-
+	[SerializeField] int action;
     protected CharacterMotor characterMotor;
 	protected InputManager inputManager;
     public Texture2D crosshairTexture;
@@ -44,6 +44,34 @@ public class CharacterInput : Photon.MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G)) {
             characterMotor.ThrowBomb();
         }
+
+		action +=inputManager.SwitchGlitch;
+		action =  Mathf.Clamp(action,0,3);
+		if(inputManager.Action)
+		{
+			switch(action)
+			{
+			case 0:
+				if(!gameObject.GetComponent<FlyMode>())
+				{
+					gameObject.AddComponent<FlyMode>();
+				}
+				break;
+			case 1:
+				if(!gameObject.GetComponent<BounceBug>())
+				{
+					gameObject.AddComponent<BounceBug>();
+				}
+				break;
+				
+			case 2:
+				if(!gameObject.GetComponent<TeleportGlitch>())
+				{
+					gameObject.AddComponent<TeleportGlitch>();
+				}
+				break;
+			}
+		}
     }
 
     protected virtual void FixedUpdate() 
@@ -68,22 +96,6 @@ public class CharacterInput : Photon.MonoBehaviour
 		{
             characterMotor.Attack();
         }
-
-		if(inputManager.Action)
-		{
-//			if(!gameObject.GetComponent<TeleportGlitch>())
-//			{
-//				gameObject.AddComponent<TeleportGlitch>();
-//			}
-			if(!gameObject.GetComponent<FlyMode>())
-			{
-				gameObject.AddComponent<FlyMode>();
-			}
-//			if(!gameObject.GetComponent<BounceBug>())
-//			{
-//				gameObject.AddComponent<BounceBug>();
-//			}
-		}
 
         // Change player direction depending on mouse position
 		Vector2 input = Camera.main.ScreenToWorldPoint (inputManager.Position);
@@ -112,4 +124,9 @@ public class CharacterInput : Photon.MonoBehaviour
             weapon[weaponId].enabled = true;
         }
     }
+
+	public int GetAction()
+	{
+		return action;
+	}
 }

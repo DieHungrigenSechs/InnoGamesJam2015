@@ -132,4 +132,10 @@ public class TimeStopGlitch : BugPhysics
 		}
 	}
 
+    protected void Update() {
+        if (renderer && renderer.enabled) {
+            renderer.color = new Color(1f, 1f, 1f, Random.value);
+        }
+    }
+
 }

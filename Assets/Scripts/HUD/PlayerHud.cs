@@ -5,7 +5,9 @@ public class PlayerHud : BasicHud
 {
 	[SerializeField] Slider slider;
 	[SerializeField] PlayerHealth health;
-
+	[SerializeField] Image[] images;
+	CharacterInput input;
+	int action = -1;
 	protected override void Awake ()
 	{
 		base.Awake ();
@@ -14,6 +16,9 @@ public class PlayerHud : BasicHud
 		{
 			health = GameObject.FindObjectOfType<PlayerHealth>();
 		}
+
+		input = health.GetComponent<CharacterInput>();
+
 	}
 
 	protected override void Start ()
@@ -28,6 +33,26 @@ public class PlayerHud : BasicHud
 	{
 		base.Update ();
 		slider.value = health.Energy;
+		if(input)
+		{
+			int current = input.GetAction();
+			if(current != action)
+			{
+				for(int i = 0; i < images.Length;i++)
+				{
+					if(i == current)
+					{
+						images[i].enabled = false;
+					}
+					else
+					{
+						images[i].enabled = true;
+					}
+				}
+
+				action = current;
+			}
+		}
 	}
 
 
