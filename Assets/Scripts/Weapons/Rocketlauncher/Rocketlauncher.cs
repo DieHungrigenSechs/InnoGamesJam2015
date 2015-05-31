@@ -6,6 +6,7 @@ public class Rocketlauncher : Weapon {
         projectilePrefab = Resources.Load<GameObject>("Projectiles/Rocket");
         armSprite = Resources.Load<Sprite>("Weapons/Launcher");
         projectileStartYOffset = 1.4f;
+        projectileStartMovement = 1.35f;
     }
 
 }
