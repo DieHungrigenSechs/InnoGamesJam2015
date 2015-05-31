@@ -21,8 +21,14 @@ public abstract class Weapon : MonoBehaviour {
 
     void OnEnable()
     {
-        if (armSprite != null) {
-            GetComponentInChildren<WeaponHolderArm>().sprite = armSprite;
+        if (armSprite != null) 
+		{
+
+			WeaponHolderArm armHolder = GetComponentInChildren<WeaponHolderArm>();
+			if(armHolder)
+			{
+				armHolder.sprite = armSprite;
+			}
         }
         isNPC = (!GetComponent<CharacterInput>());
         characterMotor = GetComponent<CharacterMotor>();
