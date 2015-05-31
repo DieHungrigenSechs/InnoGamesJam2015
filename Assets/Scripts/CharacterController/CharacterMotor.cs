@@ -86,7 +86,7 @@ public class CharacterMotor : Photon.MonoBehaviour
 
         if (inputJump && IsGrounded) 
 		{
-            v.y += jumpPower;
+            v.y = jumpPower;
             animatorObject.SetTrigger("Jump");
         }
 
