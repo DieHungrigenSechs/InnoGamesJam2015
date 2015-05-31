@@ -10,8 +10,9 @@ public class AIPlayer : MonoBehaviour
     private CharacterMotor motor;
     [SerializeField]
     private AIWaypoint _currentWaypoint;
-    private AIWaypoint _lastWaypoint;
-    public AIWaypoint currentOrLastWaypoint { get { return _currentWaypoint ?? _lastWaypoint; } }
+    public AIWaypoint currentWaypoint { get { return _currentWaypoint; } }
+    public AIWaypoint lastWaypoint { private set; get; }
+    //public AIWaypoint currentOrLastWaypoint { get { return _currentWaypoint ?? _lastWaypoint; } }
 
 
 	void Awake()
@@ -43,7 +44,7 @@ public class AIPlayer : MonoBehaviour
             else if(Mathf.Abs(distance.y) < verticalReachDistance)
             {
                 var wp = _currentWaypoint;
-                _lastWaypoint = _currentWaypoint;
+                lastWaypoint = _currentWaypoint;
                 _currentWaypoint = null;
                 wp.OnAIReached();
             }
